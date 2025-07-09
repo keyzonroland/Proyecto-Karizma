@@ -1,0 +1,61 @@
+// Estilos para el pie de página
+.footer {
+  width: 100%;
+  background: $color-footer-bg;
+  color: $color-white;
+  padding: 2.5rem 0 1.5rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+.footer__logo img {
+  height: 110px;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+.footer__info {
+  font-size: 1rem;
+  color: $color-white;
+}
+.footer__info p {
+  margin: 0.2rem 0;
+}
+.footer__social-label {
+  color: $color-accent;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1px;
+  display: block;
+}
+.footer__social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.footer__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 0.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.footer__icon:hover {
+  transform: scale(1.15);
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px $color-accent);
+}
+.footer__icon.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
+.footer__icon.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
+.footer__icon.nav__icon--yt { background-image: url('../assets/images/youtube.svg'); }
+.footer__icon.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }

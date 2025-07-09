@@ -1,0 +1,13 @@
+// Estilos para botones reutilizables
+.button {
+  padding: 0.5em 1.5em;
+  border: none;
+  border-radius: 4px;
+  background: $color-primary;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+  &:hover {
+    background: darken($color-primary, 10%);
+  }
+}

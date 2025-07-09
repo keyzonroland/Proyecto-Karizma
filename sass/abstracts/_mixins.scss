@@ -1,0 +1,9 @@
+// Mixins reutilizables
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin glossy-bg {
+  background: $color-bg-glossy;
+}

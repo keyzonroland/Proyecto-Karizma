@@ -1,0 +1,5 @@
+// Tema principal (puedes expandir para dark/light en el futuro)
+.theme-dark {
+  @include glossy-bg;
+  color: $color-white;
+}

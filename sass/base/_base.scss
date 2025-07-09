@@ -1,0 +1,9 @@
+/* Reset y estilos base */
+body {
+  @include glossy-bg;
+  min-height: 100vh;
+  color: $color-white;
+  font-family: $font-main;
+  margin: 0;
+  padding: 0;
+}

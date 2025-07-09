@@ -1,0 +1,14 @@
+// Importa todos los parciales de Sass 7-1
+@import 'abstracts/variables';
+@import 'abstracts/colors';
+@import 'abstracts/mixins';
+@import 'base/base';
+@import 'base/typography';
+@import 'base/utilities';
+@import 'layout/header';
+// @import 'layout/navigation';
+@import 'layout/footer';
+@import 'components/menu';
+@import 'components/buttons';
+@import 'pages/home';
+@import 'themes/theme';

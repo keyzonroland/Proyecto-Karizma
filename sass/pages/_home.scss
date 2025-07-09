@@ -1,0 +1,116 @@
+// Estilos del hero principal
+.hero {
+  @include flex-center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 7rem;
+  position: relative;
+  overflow: hidden;
+  background: $color-bg-glossy;
+  &__image-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets/images/karizma.png') center center no-repeat;
+    background-size: contain;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+  }
+  &__content {
+    flex: none;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    color: $color-white;
+  }
+  &__title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: $color-white;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.7);
+  }
+  &__subtitle {
+    font-size: 1.3rem;
+    color: $color-accent;
+    margin-bottom: 2.5rem;
+  }
+  &__signature {
+    font-family: $font-logo;
+    font-size: 2rem;
+    color: $color-white;
+    margin-top: 3rem;
+  }
+  &__image {
+    flex: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    margin-top: 2rem;
+  }
+  &__img {
+    max-width: 600px;
+    width: 90vw;
+    border-radius: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+    object-fit: contain;
+    background: $color-bg;
+    padding: 1.5rem;
+    filter: grayscale(1);
+    transition: filter 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  &__img:hover {
+    filter: grayscale(0);
+  }
+  &__video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 0 0 0;
+    z-index: 2;
+    iframe {
+      width: 80vw;
+      max-width: 900px;
+      height: 50vw;
+      max-height: 500px;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      border: 3px solid #18181c;
+      background: #000;
+      transition: box-shadow 0.3s;
+    }
+    iframe:hover {
+      box-shadow: 0 12px 48px 0 rgba(224,185,115,0.25);
+      border-color: $color-accent;
+    }
+  }
+}
+
+// RESPONSIVE DESIGN
+
+@media (max-width: 1024px) {
+  .hero__title { font-size: 2.2rem; }
+  .hero__img { max-width: 400px; }
+  .hero__video iframe { max-width: 600px; height: 40vw; }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 5rem;
+    &__title { font-size: 1.5rem; }
+    &__subtitle { font-size: 1.1rem; }
+    &__img { max-width: 250px; width: 98vw; padding: 0.5rem; }
+    &__video iframe { max-width: 98vw; height: 45vw; }
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 3.5rem;
+    &__title { font-size: 1.1rem; }
+    &__subtitle { font-size: 0.95rem; }
+    &__img { max-width: 98vw; border-radius: 1rem; padding: 0.2rem; }
+    &__video iframe { height: 38vw; }
+  }
+}
