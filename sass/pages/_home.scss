@@ -1,3 +1,44 @@
+// Asegurar separaciones visuales completas entre secciones
+.page {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  
+  // Asegurar que las secciones tengan separaciones visuales nítidas
+  section {
+    position: relative;
+    z-index: 1;
+    
+    // Línea de separación sutil entre secciones
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      z-index: 2;
+    }
+  }
+  
+  // Excepciones para secciones específicas
+  .hero::after,
+  .gallery-section::after {
+    display: none;
+  }
+}
+
 // Estilos del hero principal
 .hero {
   @include flex-center;
@@ -7,6 +48,10 @@
   position: relative;
   overflow: hidden;
   background: $color-bg-glossy;
+  margin-bottom: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   &__image-bg {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -60,10 +105,13 @@
     background: $color-bg;
     padding: 1.5rem;
     filter: grayscale(1);
-    transition: filter 1.2s cubic-bezier(0.4,0,0.2,1);
-  }
-  &__img:hover {
-    filter: grayscale(0);
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    
+    &:hover {
+      filter: grayscale(0);
+      box-shadow: 0 12px 48px rgba(224, 185, 115, 0.3);
+    }
   }
   &__video {
     display: flex;
@@ -87,6 +135,549 @@
       border-color: $color-accent;
     }
   }
+  &__image-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+    
+    // Overlay sutil para indicar que es clickeable
+    &::after {
+      content: '▶';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: rgba(224, 185, 115, 0.9);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 3;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+    
+    &:hover::after {
+      opacity: 1;
+    }
+    
+    &:hover .hero__img {
+      filter: grayscale(0) brightness(0.8);
+    }
+  }
+}
+
+// Nueva sección de contenido con diseño visual
+.content-section {
+  background: #f8f8f8;
+  padding: 6rem 0;
+  margin: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  scroll-margin-top: 120px; // Offset para el header fijo
+  border-top: 2px solid rgba(224, 185, 115, 0.2);
+  border-bottom: 2px solid rgba(224, 185, 115, 0.2);
+  
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  &__visual {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  
+  &__decoration {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, $color-accent 50%, transparent 100%);
+    margin: 0 auto 1.5rem auto;
+    border-radius: 2px;
+  }
+  
+  &__title {
+    font-family: $font-logo;
+    font-size: 2.5rem;
+    color: $color-accent;
+    margin: 0 0 1rem 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  &__separator {
+    width: 60px;
+    height: 2px;
+    background: $color-white;
+    margin: 0 auto;
+    opacity: 0.6;
+  }
+  
+  &__text {
+    background: rgba(24, 24, 28, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(224, 185, 115, 0.1);
+    position: relative;
+    overflow: hidden;
+    
+    // Imagen de fondo difuminada
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../assets/images/karizma.png') center center no-repeat;
+      background-size: cover;
+      filter: blur(8px) brightness(0.3);
+      opacity: 0.4;
+      z-index: -1;
+    }
+    
+    // Overlay adicional para mejor legibilidad
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(24, 24, 28, 0.7) 0%, rgba(35, 35, 42, 0.6) 100%);
+      z-index: -1;
+    }
+  }
+  
+  &__columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  
+  &__column {
+    p {
+      color: $color-white;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &:first-child {
+        position: relative;
+        
+        &::before {
+          content: '';
+          position: absolute;
+          left: -1rem;
+          top: 0;
+          width: 4px;
+          height: 2rem;
+          background: $color-accent;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}
+
+// Sección de galería con fondo blanco
+.gallery-section {
+  background: #ffffff;
+  color: #333333;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  scroll-margin-top: 120px; // Offset para el header fijo
+  border-top: 2px solid rgba(200, 200, 200, 0.3);
+  
+  &__header {
+    background: #2a2a2a;
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: $color-accent;
+      margin-top: -1rem;
+    }
+  }
+  
+  &__title {
+    font-family: $font-logo;
+    font-size: 2.2rem;
+    color: $color-accent;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+  }
+  
+  &__content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  
+  &__bio {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  &__initial {
+    font-family: $font-logo;
+    font-size: 6rem;
+    font-weight: 700;
+    color: $color-accent;
+    line-height: 1;
+    margin-top: -0.5rem;
+    flex-shrink: 0;
+  }
+  
+  &__text {
+    flex: 1;
+    
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      color: #555555;
+      
+      &:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+  
+  &__more {
+    color: $color-accent;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  &__gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-end;
+  }
+  
+  &__quote {
+    text-align: left;
+    max-width: 300px;
+    
+    blockquote {
+      font-size: 1.8rem;
+      font-style: italic;
+      line-height: 1.3;
+      margin: 0 0 1rem 0;
+      color: #666666;
+      font-weight: 300;
+    }
+    
+    cite {
+      font-size: 0.9rem;
+      color: #999999;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+  
+  &__photos {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  
+  &__photo {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    &--large {
+      width: 200px;
+      height: 280px;
+    }
+    
+    &--small {
+      width: 150px;
+      height: 200px;
+    }
+  }
+}
+
+// Sección de historia y trayectoria
+.history-section {
+  background: #000000;
+  color: $color-white;
+  padding: 6rem 0;
+  margin: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  &__block {
+    margin-bottom: 5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: $color-accent;
+    margin-bottom: 1rem;
+  }
+  
+  &__separator {
+    width: 80px;
+    height: 3px;
+    background: $color-accent;
+    margin: 0 auto;
+    border-radius: 2px;
+  }
+  
+  &__content {
+    max-width: 100%;
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      text-align: justify;
+      color: rgba(255, 255, 255, 0.95);
+      
+      strong {
+        color: $color-accent;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  &__songs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  &__song-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+      border-color: rgba(224, 185, 115, 0.3);
+      box-shadow: 0 8px 24px rgba(224, 185, 115, 0.15);
+    }
+  }
+  
+  &__song-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $color-accent;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__song-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  &__song-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    
+    &--spotify {
+      background: rgba(29, 185, 84, 0.1);
+      border: 2px solid rgba(29, 185, 84, 0.3);
+      
+      &:hover {
+        background: rgba(29, 185, 84, 0.2);
+        border-color: #1DB954;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+      }
+    }
+    
+    &--youtube {
+      background: rgba(255, 0, 0, 0.1);
+      border: 2px solid rgba(255, 0, 0, 0.3);
+      
+      &:hover {
+        background: rgba(255, 0, 0, 0.2);
+        border-color: #FF0000;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+      }
+    }
+    
+    svg {
+      transition: all 0.3s ease;
+    }
+    
+    &:hover svg {
+      transform: scale(1.1);
+    }
+  }
+  
+  &__team {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 3rem;
+    margin-top: 3rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(224, 185, 115, 0.1);
+  }
+  
+  &__members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  &__member {
+    background: rgba(224, 185, 115, 0.08);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(224, 185, 115, 0.2);
+    
+    &:hover {
+      background: rgba(224, 185, 115, 0.15);
+      transform: translateY(-2px);
+    }
+  }
+  
+  &__member-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-accent;
+    margin-bottom: 0.3rem;
+  }
+  
+  &__member-role {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+  }
+  
+  &__call-to-action {
+    background: linear-gradient(45deg, rgba(224, 185, 115, 0.1), rgba(224, 185, 115, 0.2));
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $color-accent;
+    margin-top: 2rem;
+    border: 1px solid rgba(224, 185, 115, 0.3);
+  }
+  
+  &__albums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  &__album {
+    background: rgba(224, 185, 115, 0.1);
+    border: 1px solid rgba(224, 185, 115, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: $color-accent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    
+    &:hover {
+      background: rgba(224, 185, 115, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(224, 185, 115, 0.2);
+    }
+  }
 }
 
 // RESPONSIVE DESIGN
@@ -95,6 +686,79 @@
   .hero__title { font-size: 2.2rem; }
   .hero__img { max-width: 400px; }
   .hero__video iframe { max-width: 600px; height: 40vw; }
+  .content-section {
+    padding: 4rem 0;
+    
+    &__container {
+      padding: 0 1.5rem;
+    }
+    
+    &__title {
+      font-size: 2.2rem;
+    }
+    
+    &__text {
+      padding: 2.5rem;
+    }
+    
+    &__columns {
+      gap: 2.5rem;
+    }
+  }
+  .gallery-section {
+    &__title {
+      font-size: 2rem;
+    }
+    
+    &__content {
+      gap: 3rem;
+      padding: 3rem 2rem;
+    }
+    
+    &__initial {
+      font-size: 5rem;
+    }
+    
+    &__quote blockquote {
+      font-size: 1.6rem;
+    }
+    
+    &__photo {
+      &--large {
+        width: 180px;
+        height: 250px;
+      }
+      
+      &--small {
+        width: 130px;
+        height: 180px;
+      }
+    }
+  }
+  .history-section {
+    padding: 4rem 0;
+    
+    &__content {
+      padding: 0 1.5rem;
+    }
+    
+    &__stage-title {
+      font-size: 1.8rem;
+    }
+    
+    &__albums,
+    &__songs {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    &__team {
+      padding: 2rem;
+    }
+    
+    &__members {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
 }
 @media (max-width: 768px) {
   .hero {
@@ -104,6 +768,143 @@
     &__img { max-width: 250px; width: 98vw; padding: 0.5rem; }
     &__video iframe { max-width: 98vw; height: 45vw; }
   }
+  .content-section {
+    padding: 3rem 0;
+    
+    &__container {
+      padding: 0 1rem;
+    }
+    
+    &__title {
+      font-size: 1.8rem;
+    }
+    
+    &__text {
+      padding: 2rem;
+    }
+    
+    &__columns {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    &__column p {
+      font-size: 1rem;
+    }
+  }
+  .gallery-section {
+    padding: 3rem 0;
+    
+    &__content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      padding: 0 1rem;
+    }
+    
+    &__bio {
+      gap: 1.5rem;
+    }
+    
+    &__initial {
+      font-size: 4rem;
+    }
+    
+    &__gallery {
+      align-items: center;
+    }
+    
+    &__quote {
+      text-align: center;
+      max-width: 100%;
+      
+      blockquote {
+        font-size: 1.4rem;
+      }
+    }
+    
+    &__photos {
+      justify-content: center;
+    }
+    
+    &__photo {
+      &--large {
+        width: 160px;
+        height: 220px;
+      }
+      
+      &--small {
+        width: 120px;
+        height: 160px;
+      }
+    }
+  }
+  .history-section {
+    padding: 3rem 0;
+    
+    &__content {
+      padding: 0 1rem;
+    }
+    
+    &__stage {
+      margin-bottom: 3rem;
+    }
+    
+    &__stage-title {
+      font-size: 1.5rem;
+    }
+    
+    &__text {
+      font-size: 1rem;
+      text-align: left;
+    }
+    
+    &__albums,
+    &__songs {
+      grid-template-columns: 1fr;
+    }
+    
+    &__team {
+      padding: 1.5rem;
+    }
+    
+    &__members {
+      grid-template-columns: 1fr;
+    }
+    
+    &__member {
+      padding: 1.2rem;
+    }
+  }
+  
+  // Responsive específico para las canciones con iconos
+  .history-section {
+    &__songs {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    &__song-item {
+      padding: 1rem;
+    }
+    
+    &__song-title {
+      font-size: 1rem;
+    }
+    
+    &__song-links {
+      gap: 0.8rem;
+    }
+    
+    &__song-link {
+      width: 36px;
+      height: 36px;
+      
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
 }
 @media (max-width: 480px) {
   .hero {
@@ -112,5 +913,119 @@
     &__subtitle { font-size: 0.95rem; }
     &__img { max-width: 98vw; border-radius: 1rem; padding: 0.2rem; }
     &__video iframe { height: 38vw; }
+  }
+  .content-section {
+    padding: 2rem 0;
+    
+    &__container {
+      padding: 0 1rem;
+    }
+    
+    &__title {
+      font-size: 1.5rem;
+    }
+    
+    &__decoration {
+      width: 80px;
+      height: 3px;
+    }
+    
+    &__text {
+      padding: 1.5rem;
+      border-radius: 1rem;
+    }
+    
+    &__column p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      
+      &:first-child::before {
+        left: -0.5rem;
+        width: 3px;
+        height: 1.5rem;
+      }
+    }
+  }
+  .gallery-section {
+    padding: 2rem 0;
+    
+    &__bio {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    
+    &__initial {
+      font-size: 3rem;
+      align-self: center;
+    }
+    
+    &__text p {
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    
+    &__photos {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    &__photo {
+      &--large,
+      &--small {
+        width: 200px;
+        height: 250px;
+      }
+    }
+    
+    &__quote blockquote {
+      font-size: 1.2rem;
+    }
+  }
+  .history-section {
+    &__stage-title {
+      font-size: 1.3rem;
+    }
+    
+    &__text {
+      font-size: 0.95rem;
+    }
+    
+    &__album,
+    &__song {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+    
+    &__team {
+      padding: 1rem;
+    }
+    
+    &__call-to-action {
+      font-size: 1rem;
+      padding: 1.2rem;
+    }
+  }
+  
+  // Responsive específico para las canciones con iconos
+  .history-section {
+    &__song-item {
+      padding: 0.8rem;
+      gap: 0.8rem;
+    }
+    
+    &__song-title {
+      font-size: 0.95rem;
+    }
+    
+    &__song-link {
+      width: 32px;
+      height: 32px;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
   }
 }

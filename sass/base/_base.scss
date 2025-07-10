@@ -1,4 +1,10 @@
 /* Reset y estilos base */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   @include glossy-bg;
   min-height: 100vh;
@@ -6,4 +12,7 @@ body {
   font-family: $font-main;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
