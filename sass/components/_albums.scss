@@ -1,0 +1,89 @@
+.albums-flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2rem;
+  margin: 2rem 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.album-flex {
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 320px;
+  background: transparent !important;
+  border-radius: 18px;
+  box-shadow: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: flex-grow 0.3s, box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  overflow: visible;
+}
+.album-flex:hover {
+  flex-grow: 2.2;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+  transform: scale(1.04);
+  z-index: 2;
+}
+.album-flex-bg {
+  width: 140px;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 1.2rem auto 1rem auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 6px solid #fff;
+  display: block;
+  position: relative;
+}
+.album-flex-bg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 2px #bbb;
+  opacity: 0.85;
+}
+.album-flex-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  text-align: center;
+}
+.album-flex-year {
+  color: #ffe6b0;
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+.album-flex-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+}
+.album-flex-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.album-flex-icon:hover {
+  box-shadow: 0 0 0 3px #e0b973, 0 2px 8px rgba(0,0,0,0.18);
+  transform: scale(1.12);
+}

@@ -1,0 +1,39 @@
+// Ajuste para que los hits estén siempre en una sola línea y se desborden con scroll horizontal en pantallas pequeñas
+.flex-hits-container {
+  display: flex;
+  gap: 1.1rem;
+  justify-content: center;
+  align-items: stretch;
+  margin: 2rem 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #e0b973 #191414;
+}
+
+.flex-hits-container::-webkit-scrollbar {
+  height: 8px;
+}
+.flex-hits-container::-webkit-scrollbar-thumb {
+  background: #e0b973;
+  border-radius: 4px;
+}
+.flex-hits-container::-webkit-scrollbar-track {
+  background: #191414;
+}
+
+@media (max-width: 900px) {
+  .flex-hits-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+  .flex-hit {
+    min-width: 120px;
+    max-width: 140px;
+    flex: 0 0 120px;
+    padding: 1rem 0.4rem 0.8rem 0.4rem;
+    border-radius: 1.1rem;
+  }
+}

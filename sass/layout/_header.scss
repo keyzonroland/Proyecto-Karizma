@@ -112,7 +112,10 @@
     }
     &--fb { background-image: url('../assets/images/facebook.svg'); }
     &--ig { background-image: url('../assets/images/instagram.svg'); }
-    &--yt { background-image: url('../assets/images/youtube.svg'); }
+    &--yt {
+      background-image: url('../assets/images/youtube.svg');
+      filter: none;
+    }
     &--tt { background-image: url('../assets/images/tiktok.svg'); }
   }
   &__cart {
@@ -205,7 +208,10 @@
     }
     &.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
     &.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
-    &.nav__icon--yt { background-image: url('../assets/images/youtube.svg'); }
+    &.nav__icon--yt {
+      background-image: url('../assets/images/youtube.svg');
+      filter: none;
+    }
     &.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }
   }
 }

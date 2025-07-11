@@ -57,5 +57,8 @@
 }
 .footer__icon.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
 .footer__icon.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
-.footer__icon.nav__icon--yt { background-image: url('../assets/images/youtube.svg'); }
+.footer__icon.nav__icon--yt {
+  background-image: url('../assets/images/youtube.svg');
+  filter: none;
+}
 .footer__icon.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }

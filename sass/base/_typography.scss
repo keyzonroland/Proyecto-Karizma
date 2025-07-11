@@ -1,3 +1,18 @@
+/* Borde oscuro a cada letra del título Quienes Somos */
+.content-section__title {
+  text-shadow:
+    0 2px 8px #000,
+    0 0 2px #222,
+    0 0 12px #333,
+    1px 1px 2px #111,
+    -1px -1px 2px #111;
+  border: none;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  display: block;
+}
 /* Tipografía base */
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-main;
