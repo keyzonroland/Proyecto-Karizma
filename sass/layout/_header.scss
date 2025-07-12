@@ -11,7 +11,7 @@
 .nav {
   @include flex-center;
   justify-content: space-between;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
   display: flex;
   align-items: center;
   &__logo {
@@ -28,7 +28,7 @@
   &__list {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.2rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -48,9 +48,79 @@
     &:hover {
       color: $color-accent;
     }
+    
+    // Estilos para enlaces con fotos
+    &--photo {
+      position: relative;
+      padding: 0;
+      border-radius: 0.8rem;
+      overflow: hidden;
+      display: block;
+      width: 120px;
+      height: 80px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      &:hover {
+        transform: translateY(-3px) scale(1.08);
+        box-shadow: 0 6px 20px rgba(224, 185, 115, 0.5);
+      }
+    }
+  }
+  
+  // Estilos para las mini fotos del menú
+  &__photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    filter: brightness(0.8) contrast(1.2) saturate(1.2);
+  }
+  
+  &__photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.6) 60%,
+      transparent 100%
+    );
+    padding: 0.5rem;
+    transform: translateY(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  &__photo-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $color-white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.2rem;
+  }
+  
+  // Efectos hover para las fotos del menú
+  &__link--photo:hover &__photo-overlay {
+    transform: translateY(0);
+  }
+  
+  &__link--photo:hover &__photo-img {
+    filter: brightness(1) contrast(1.3) saturate(1.4);
+    transform: scale(1.1);
   }
   &__dropdown:hover .nav__submenu {
     display: block;
+  }
+  
+  // Estado activo del dropdown cuando se activa desde la foto del hero
+  &__dropdown--active .nav__submenu {
+    display: block;
+    animation: dropdownSlideIn 0.3s ease-out;
   }
   &__submenu {
     display: none;
@@ -151,6 +221,17 @@
   }
 }
 
+@keyframes dropdownSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 // Estilos del footer
 .footer {
   width: 100%;
@@ -216,6 +297,52 @@
   }
 }
 
+// Colores específicos para cada foto del menú
+.nav__item:nth-child(1) .nav__link--photo {
+  border: 3px solid rgba(0, 201, 255, 0.6);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(0, 201, 255, 0.7);
+    border-color: rgba(0, 201, 255, 0.8);
+  }
+}
+
+.nav__item:nth-child(2) .nav__link--photo {
+  border: 3px solid rgba(224, 185, 115, 0.6);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(224, 185, 115, 0.7);
+    border-color: rgba(224, 185, 115, 0.8);
+  }
+}
+
+.nav__item:nth-child(3) .nav__link--photo {
+  border: 3px solid rgba(255, 107, 107, 0.6);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.7);
+    border-color: rgba(255, 107, 107, 0.8);
+  }
+}
+
+.nav__item:nth-child(4) .nav__link--photo {
+  border: 3px solid rgba(78, 205, 196, 0.6);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.7);
+    border-color: rgba(78, 205, 196, 0.8);
+  }
+}
+
+.nav__item:nth-child(5) .nav__link--photo {
+  border: 3px solid rgba(199, 121, 208, 0.6);
+  
+  &:hover {
+    box-shadow: 0 6px 20px rgba(199, 121, 208, 0.7);
+    border-color: rgba(199, 121, 208, 0.8);
+  }
+}
+
 // RESPONSIVE DESIGN
 
 // Header y navegación
@@ -231,6 +358,16 @@
   }
   .nav__link {
     font-size: 1rem;
+    
+    // Fotos un poco más pequeñas en tablet
+    &--photo {
+      width: 100px;
+      height: 65px;
+    }
+  }
+  
+  .nav__photo-title {
+    font-size: 0.7rem;
   }
 }
 @media (max-width: 768px) {
@@ -275,6 +412,43 @@
   }
   .nav__toggle {
     display: flex;
+  }
+  
+  // En móviles, mostrar texto en lugar de fotos para mejor usabilidad
+  .nav__link--photo {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    
+    &:hover {
+      transform: none;
+      background: rgba(224, 185, 115, 0.1);
+    }
+  }
+  
+  .nav__photo-img {
+    width: 40px;
+    height: 25px;
+    border-radius: 0.3rem;
+  }
+  
+  .nav__photo-overlay {
+    position: static;
+    background: none;
+    padding: 0;
+    transform: none;
+  }
+  
+  .nav__photo-title {
+    font-size: 1.1rem;
+    color: $color-white;
+    text-shadow: none;
   }
 }
 @media (max-width: 480px) {
