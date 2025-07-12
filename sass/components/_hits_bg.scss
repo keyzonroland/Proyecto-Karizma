@@ -34,6 +34,8 @@
   font-size: 1.05rem;
   margin-bottom: 0.8rem;
   gap: 0.7rem;
+}
+
 @media (max-width: 900px) {
   .flex-hit {
     min-width: 120px;
@@ -43,5 +45,4 @@
   .flex-hit-title {
     font-size: 0.95rem;
   }
-}
 }

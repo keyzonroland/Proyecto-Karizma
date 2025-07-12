@@ -8,4 +8,14 @@ if (navToggle && navList) {
     navToggle.setAttribute('aria-expanded', !expanded);
     navList.classList.toggle('nav__list--open');
   });
+  
+  // Cerrar menú al hacer clic en enlaces de navegación
+  const navLinks = document.querySelectorAll('.nav__link[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+      // Cerrar el menú móvil
+      navToggle.setAttribute('aria-expanded', 'false');
+      navList.classList.remove('nav__list--open');
+    });
+  });
 }
