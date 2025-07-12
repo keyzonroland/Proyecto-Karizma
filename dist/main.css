@@ -1608,8 +1608,8 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 .gallery-section__photo--large {
-  width: 200px;
-  height: 280px;
+  width: 300px;
+  height: 400px;
 }
 .gallery-section__photo--small {
   width: 150px;
@@ -1746,8 +1746,8 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.6rem;
   }
   .gallery-section__photo--large {
-    width: 180px;
-    height: 250px;
+    width: 250px;
+    height: 320px;
   }
   .gallery-section__photo--small {
     width: 130px;
@@ -1853,8 +1853,8 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
   }
   .gallery-section__photo--large {
-    width: 160px;
-    height: 220px;
+    width: 220px;
+    height: 280px;
   }
   .gallery-section__photo--small {
     width: 120px;
@@ -1993,8 +1993,8 @@ h1, h2, h3, h4, h5, h6 {
     gap: 1rem;
   }
   .gallery-section__photo--large, .gallery-section__photo--small {
-    width: 200px;
-    height: 250px;
+    width: 240px;
+    height: 300px;
   }
   .gallery-section__quote blockquote {
     font-size: 1.2rem;
