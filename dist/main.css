@@ -1514,6 +1514,127 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
+.history-section__text-with-image {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.history-section__text-with-image--reverse {
+  flex-direction: row-reverse;
+}
+@media (max-width: 768px) {
+  .history-section__text-with-image {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .history-section__text-with-image--reverse {
+    flex-direction: column;
+  }
+}
+.history-section__text-content {
+  flex: 2;
+}
+.history-section__text-content .justified-text {
+  text-align: justify;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .history-section__text-content .justified-text {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+.history-section__image {
+  flex: 1;
+}
+.history-section__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.history-section__image img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(224, 185, 115, 0.2);
+}
+@media (max-width: 768px) {
+  .history-section__image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+.history-section__title {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 2.8rem;
+  color: #e0b973;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .history-section__title {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .history-section__title {
+    font-size: 1.6rem;
+  }
+}
+.history-section__separator {
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #e0b973 50%, transparent 100%);
+  margin: 0 auto 2rem auto;
+  border-radius: 2px;
+}
+@media (max-width: 768px) {
+  .history-section__separator {
+    width: 80px;
+    height: 2px;
+  }
+}
+.history-section__block {
+  margin-bottom: 4rem;
+}
+.history-section__block:last-child {
+  margin-bottom: 0;
+}
+.history-section__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.history-section__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (max-width: 768px) {
+  .history-section__content {
+    padding: 0 1rem;
+  }
+}
+.history-section__highlight {
+  background: rgba(224, 185, 115, 0.1);
+  border-left: 4px solid #e0b973;
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.history-section__highlight .justified-text {
+  color: rgba(255, 255, 255, 0.95);
+}
+@media (max-width: 768px) {
+  .history-section__highlight {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+}
+
 @media (max-width: 1024px) {
   .hero__title {
     font-size: 2.2rem;

@@ -538,6 +538,145 @@
   }
 }
 
+// Nuevos estilos para la sección historia mejorada
+.history-section {
+  // Estilos para texto con imagen al lado
+  &__text-with-image {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    
+    // Versión invertida (imagen a la izquierda, texto a la derecha)
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1.5rem;
+      
+      &--reverse {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  &__text-content {
+    flex: 2;
+    
+    .justified-text {
+      text-align: justify;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: $color-white;
+      margin: 0;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        text-align: left;
+      }
+    }
+  }
+  
+  &__image {
+    flex: 1;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(224, 185, 115, 0.2);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+  
+  // Mejorar el título principal
+  &__title {
+    font-family: $font-logo;
+    font-size: 2.8rem;
+    color: $color-accent;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+    
+    @media (max-width: 480px) {
+      font-size: 1.6rem;
+    }
+  }
+  
+  // Separador mejorado
+  &__separator {
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, $color-accent 50%, transparent 100%);
+    margin: 0 auto 2rem auto;
+    border-radius: 2px;
+    
+    @media (max-width: 768px) {
+      width: 80px;
+      height: 2px;
+    }
+  }
+  
+  // Bloque de contenido mejorado
+  &__block {
+    margin-bottom: 4rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Header de cada bloque
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  // Contenido de cada bloque
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    @media (max-width: 768px) {
+      padding: 0 1rem;
+    }
+  }
+  
+  // Destacado mejorado
+  &__highlight {
+    background: rgba(224, 185, 115, 0.1);
+    border-left: 4px solid $color-accent;
+    border-radius: 0 8px 8px 0;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    
+    .justified-text {
+      color: rgba(255, 255, 255, 0.95);
+    }
+    
+    @media (max-width: 768px) {
+      padding: 1rem;
+      margin: 1.5rem 0;
+    }
+  }
+}
+
 // RESPONSIVE DESIGN
 
 @media (max-width: 1024px) {
