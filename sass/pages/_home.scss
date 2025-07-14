@@ -1,3 +1,7 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
 // Asegurar separaciones visuales completas entre secciones
 .page {
   overflow-x: hidden;

@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 // Mixins reutilizables
 @mixin flex-center {
   display: flex;

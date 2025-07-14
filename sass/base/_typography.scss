@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 /* Borde oscuro a cada letra del título Quienes Somos */
 .content-section__title {
   text-shadow:

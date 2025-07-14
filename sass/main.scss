@@ -1,19 +1,19 @@
-// Importa todos los parciales de Sass 7-1
-@import 'abstracts/variables';
-@import 'abstracts/colors';
-@import 'abstracts/mixins';
-@import 'base/base';
-@import 'base/typography';
-@import 'base/utilities';
-@import 'layout/header';
-// @import 'layout/navigation';
-@import 'layout/footer';
-@import 'components/menu';
-@import 'components/buttons';
-@import 'components/carousel';
-@import 'components/hits';
-@import 'components/hits_scroll';
-@import 'components/hits_bg';
-@import 'components/albums';
-@import 'pages/home';
-@import 'themes/theme';
+// Importa todos los parciales de Sass 7-1 usando @use (moderno)
+@use 'abstracts/variables' as *;
+@use 'abstracts/colors' as *;
+@use 'abstracts/mixins' as *;
+@use 'base/base';
+@use 'base/typography';
+@use 'base/utilities';
+@use 'layout/header';
+// @use 'layout/navigation';
+@use 'layout/footer';
+@use 'components/menu';
+@use 'components/buttons';
+@use 'components/carousel';
+@use 'components/hits';
+@use 'components/hits_scroll';
+@use 'components/hits_bg';
+@use 'components/albums';
+@use 'pages/home';
+@use 'themes/theme';

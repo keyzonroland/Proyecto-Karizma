@@ -1,3 +1,7 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+@use 'sass:color';
+
 // Estilos para botones reutilizables
 .button {
   padding: 0.5em 1.5em;
@@ -8,7 +12,7 @@
   cursor: pointer;
   transition: background 0.2s;
   &:hover {
-    background: darken($color-primary, 10%);
+    background: color.scale($color-primary, $lightness: -20%);
   }
 }
 
