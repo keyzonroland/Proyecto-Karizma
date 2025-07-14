@@ -52,7 +52,7 @@ function currentSlide(index) {
 // Función para iniciar el auto-slide
 function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
-        nextSlide();
+        showSlide(currentSlideIndex + 1);
     }, 5000); // Cambia cada 5 segundos
 }
 
