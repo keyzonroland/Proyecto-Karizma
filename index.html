@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GRUPO KARIZMA</title>
-  <link rel="stylesheet" href="./dist/main.css?v=2025-07-14-3">
+  <link rel="stylesheet" href="./dist/main.css?v=2025-07-14-4">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <!-- SEO Meta Tags -->
   <meta name="description" content="Grupo Karizma: Banda chilena de música tropical y Topikal Ranchero. Conoce su historia, discografía, integrantes y próximos eventos. ¡Contrátalos para tu evento!">
@@ -22,7 +22,7 @@
   <link rel="canonical" href="https://www.karizma.cl/" />
 
   <!-- Performance & Optimization -->
-  <link rel="preload" href="./dist/main.css?v=2025-07-14-3" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="./dist/main.css?v=2025-07-14-4" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -398,31 +398,31 @@
                         <!-- Sección de integrantes de la banda -->
 
                             <div class="gallery-section__members">
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="juan">
                                     <span class="gallery-section__member-name">Juan González</span>
                                     <span class="gallery-section__member-role">(Tecladista y Director)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="alexander">
                                     <span class="gallery-section__member-name">Alexander Vargas</span>
                                     <span class="gallery-section__member-role">(Voz)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="carlos">
                                     <span class="gallery-section__member-name">Carlos Ibáñez</span>
                                     <span class="gallery-section__member-role">(Huiro, animaciones y percusiones electronicas)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="cristian">
                                     <span class="gallery-section__member-name">Cristian Martínez</span>
                                     <span class="gallery-section__member-role">(Batería y Percusión Latina)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="fabian">
                                     <span class="gallery-section__member-name">Fabián Orellana</span>
                                     <span class="gallery-section__member-role">(Bajo)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="jose">
                                     <span class="gallery-section__member-name">José Luis Vega</span>
                                     <span class="gallery-section__member-role">(Guitarra)</span>
                                 </div>
-                                <div class="gallery-section__member">
+                                <div class="gallery-section__member" data-member="violeta">
                                     <span class="gallery-section__member-name">Violeta Valdés</span>
                                     <span class="gallery-section__member-role">(Staff)</span>
                                 </div>
@@ -475,7 +475,26 @@
       </svg>
     </a>
     
+    <!-- Modal para mostrar información de integrantes -->
+    <div id="memberModal" class="member-modal">
+        <div class="member-modal__overlay"></div>
+        <div class="member-modal__content">
+            <button class="member-modal__close">&times;</button>
+            <div class="member-modal__body">
+                <div class="member-modal__image">
+                    <img id="memberModalImage" src="" alt="">
+                </div>
+                <div class="member-modal__info">
+                    <h3 id="memberModalName" class="member-modal__name"></h3>
+                    <p id="memberModalRole" class="member-modal__role"></p>
+                    <p id="memberModalDescription" class="member-modal__description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="./assets/scripts/menu.js"></script>
     <script src="./assets/scripts/carousel.js"></script>
+    <script src="./assets/scripts/modal.js"></script>
   </body>
 </html>
