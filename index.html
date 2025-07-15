@@ -245,14 +245,6 @@
           </div>
           
           <div class="nav__mobile-content">
-            <a href="#" class="nav__mobile-link">
-              <span class="nav__mobile-icon">📅</span>
-              <div class="nav__mobile-info">
-                <span class="nav__mobile-title">Próximos Eventos</span>
-                <span class="nav__mobile-subtitle">Ver fechas disponibles</span>
-              </div>
-            </a>
-            
             <a href="#quienes-somos" class="nav__mobile-link">
               <span class="nav__mobile-icon">👥</span>
               <div class="nav__mobile-info">
@@ -260,7 +252,7 @@
                 <span class="nav__mobile-subtitle">Nuestra historia</span>
               </div>
             </a>
-            
+
             <a href="#discografia" class="nav__mobile-link">
               <span class="nav__mobile-icon">🎵</span>
               <div class="nav__mobile-info">
@@ -268,7 +260,7 @@
                 <span class="nav__mobile-subtitle">Nuestros álbumes</span>
               </div>
             </a>
-            
+
             <a href="#conocenos" class="nav__mobile-link">
               <span class="nav__mobile-icon">🎤</span>
               <div class="nav__mobile-info">
@@ -276,7 +268,7 @@
                 <span class="nav__mobile-subtitle">Los integrantes</span>
               </div>
             </a>
-            
+
             <a href="https://wa.me/56997100768" class="nav__mobile-link nav__mobile-link--cta" target="_blank" rel="noopener">
               <span class="nav__mobile-icon">📞</span>
               <div class="nav__mobile-info">
@@ -697,5 +689,38 @@
     <script src="./assets/scripts/menu.js"></script>
     <script src="./assets/scripts/carousel.js"></script>
     <script src="./assets/scripts/modal.js"></script>
+<script>
+// Cierra el menú móvil y hace scroll suave al id correspondiente
+document.addEventListener('DOMContentLoaded', function() {
+  var mobileMenu = document.querySelector('.nav__mobile-menu');
+  var mobileLinks = mobileMenu.querySelectorAll('.nav__mobile-link');
+  var overlay = document.querySelector('.nav__overlay');
+  var closeBtn = mobileMenu.querySelector('.nav__mobile-close');
+  function closeMenu() {
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('nav-mobile-open');
+  }
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          closeMenu();
+          setTimeout(function() {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      } else {
+        closeMenu();
+      }
+    });
+  });
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+});
+</script>
   </body>
 </html>
