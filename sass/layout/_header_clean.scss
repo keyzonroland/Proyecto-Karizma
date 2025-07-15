@@ -225,15 +225,39 @@
       transform: scale(1.15);
       filter: brightness(0) invert(1) drop-shadow(0 0 8px $color-accent);
     }
+
+    &.nav__icon--spotify:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px #1db954);
+    }
+
+    &.nav__icon--fb:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px #1877f2);
+    }
+
+    &.nav__icon--ig:hover {
+      transform: scale(1.15);
+      filter: brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(4490%) hue-rotate(328deg) brightness(86%) contrast(93%) drop-shadow(0 0 8px #C13584);
+    }
     
-    &.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
-    &.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
+    &.nav__icon--fb { 
+      background-image: url('../assets/images/facebook.svg');
+      filter: brightness(0) saturate(100%) invert(26%) sepia(100%) saturate(4456%) hue-rotate(217deg) brightness(97%) contrast(92%);
+    }
+    &.nav__icon--ig { 
+      background-image: url('../assets/images/instagram.svg');
+      filter: brightness(0) saturate(100%) invert(37%) sepia(96%) saturate(4490%) hue-rotate(328deg) brightness(86%) contrast(93%);
+    }
     &.nav__icon--yt {
       background-image: url('../assets/images/youtube.svg');
       filter: none;
     }
     &.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }
-    &.nav__icon--spotify { background-image: url('../assets/images/spotify.svg'); }
+    &.nav__icon--spotify { 
+      background-image: url('../assets/images/spotify.svg');
+      filter: none;
+    }
   }
 }
 
