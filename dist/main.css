@@ -639,9 +639,9 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1001;
   transition: all 0.3s ease;
 }
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav__toggle {
-    display: flex;
+    display: flex !important;
   }
 }
 .nav__toggle:hover {
@@ -674,7 +674,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 350px;
   height: 100vh;
   background: linear-gradient(135deg, #007bff 0%, #007bff 100%);
-  z-index: 1000;
+  z-index: 1002;
   transition: right 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -683,9 +683,9 @@ h1, h2, h3, h4, h5, h6 {
 .nav__mobile-menu.active {
   right: 0;
 }
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .nav__mobile-menu {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -806,7 +806,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+  z-index: 1001;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -815,19 +815,19 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   visibility: visible;
 }
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .nav__overlay {
-    display: none;
+    display: none !important;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav__photos--desktop {
-    display: none;
+    display: none !important;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .nav__brand {
     justify-content: space-between;
     width: 100%;
@@ -837,7 +837,7 @@ h1, h2, h3, h4, h5, h6 {
 body.menu-open {
   overflow: hidden;
 }
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   body.menu-open {
     overflow: auto;
   }

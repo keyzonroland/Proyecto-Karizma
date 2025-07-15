@@ -17,12 +17,22 @@ class MobileMenu {
     this.mobileLinks = document.querySelectorAll('.nav__mobile-link');
     this.body = document.body;
 
+    // Debug: Verificar que los elementos existen
+    console.log('Toggle button:', this.toggleButton);
+    console.log('Mobile menu:', this.mobileMenu);
+    console.log('Overlay:', this.overlay);
+
     // Verificar que los elementos existen
     if (!this.toggleButton || !this.mobileMenu || !this.overlay) {
-      console.warn('Elementos del menú móvil no encontrados');
+      console.error('Elementos del menú móvil no encontrados:', {
+        toggleButton: !!this.toggleButton,
+        mobileMenu: !!this.mobileMenu,
+        overlay: !!this.overlay
+      });
       return;
     }
 
+    console.log('Menú móvil inicializado correctamente');
     this.bindEvents();
   }
 
@@ -82,6 +92,7 @@ class MobileMenu {
   }
 
   openMenu() {
+    console.log('Abriendo menú móvil...');
     this.toggleButton.classList.add('active');
     this.mobileMenu.classList.add('active');
     this.overlay.classList.add('active');
@@ -89,6 +100,12 @@ class MobileMenu {
     
     // Actualizar aria-expanded
     this.toggleButton.setAttribute('aria-expanded', 'true');
+    
+    console.log('Menú abierto. Clases agregadas:', {
+      toggleActive: this.toggleButton.classList.contains('active'),
+      menuActive: this.mobileMenu.classList.contains('active'),
+      overlayActive: this.overlay.classList.contains('active')
+    });
     
     // Focus en el primer enlace para accesibilidad
     setTimeout(() => {
@@ -98,6 +115,7 @@ class MobileMenu {
   }
 
   closeMenu() {
+    console.log('Cerrando menú móvil...');
     this.toggleButton.classList.remove('active');
     this.mobileMenu.classList.remove('active');
     this.overlay.classList.remove('active');
