@@ -1317,6 +1317,7 @@ body.menu-open {
   cursor: pointer;
   transition: flex-grow 0.4s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.3s, transform 0.3s;
   background: #222;
+  text-decoration: none;
 }
 @media (max-width: 768px) {
   .flex-hit {
@@ -1357,6 +1358,7 @@ body.menu-open {
   text-align: center;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: inherit;
 }
 @media (max-width: 768px) {
   .flex-hit-title {
@@ -1371,37 +1373,22 @@ body.menu-open {
   }
 }
 
-.flex-hit-links {
-  display: flex;
-  gap: 1.2rem;
-  margin-bottom: 0.2rem;
-}
-@media (max-width: 480px) {
-  .flex-hit-links {
-    gap: 1rem;
-  }
-}
-
-.flex-hit-icon img {
-  width: 28px;
-  height: 28px;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
-  transition: transform 0.2s;
-}
-@media (max-width: 480px) {
-  .flex-hit-icon img {
-    width: 24px;
-    height: 24px;
-  }
+.flex-hit-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
 }
 
-.flex-hit-icon img:hover, .flex-hit-icon img:focus {
-  transform: scale(1.18) rotate(-6deg);
-}
-@media (max-width: 480px) {
-  .flex-hit-icon img:hover, .flex-hit-icon img:focus {
-    transform: scale(1.1) rotate(-3deg);
-  }
+.flex-hit:hover .flex-hit-bg,
+.flex-hit:focus .flex-hit-bg {
+  opacity: 0.5;
 }
 
 .flex-hits-container {
