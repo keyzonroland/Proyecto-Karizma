@@ -4,3 +4,15 @@ $color-white: #fff;
 $color-accent: #e0b973;
 $font-main: 'Montserrat', Arial, sans-serif;
 $font-logo: 'Cinzel Decorative', serif;
+
+// Breakpoints responsivos
+$breakpoint-xs: 320px;   // Móviles pequeños
+$breakpoint-sm: 480px;   // Móviles
+$breakpoint-md: 768px;   // Tablets
+$breakpoint-lg: 1024px;  // Desktop pequeño
+$breakpoint-xl: 1200px;  // Desktop grande
+$breakpoint-xxl: 1400px; // Desktop extra grande
+
+// Contenedores responsivos
+$container-max-width: 1400px;
+$container-padding: 1rem;

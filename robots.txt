@@ -1,0 +1,42 @@
+# Robots.txt para Grupo Karizma
+# https://www.karizma.cl/robots.txt
+
+User-agent: *
+Allow: /
+
+# Permitir rastreo de archivos CSS y JS importantes para SEO
+Allow: /dist/main.css
+Allow: /assets/scripts/
+Allow: /assets/images/
+
+# Archivos y directorios importantes
+Allow: /assets/images/karizma1.png
+Allow: /assets/images/hits/
+Allow: /assets/images/karizmaantiguo.jpg
+
+# Bloquear archivos temporales o de desarrollo
+Disallow: /sass/
+Disallow: /*.scss$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /*-backup.*
+Disallow: /*-problematic.*
+
+# Sitemap (cuando esté disponible)
+Sitemap: https://www.karizma.cl/sitemap.xml
+
+# Directivas específicas para motores de búsqueda
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /

@@ -1,23 +1,27 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
 // Carrusel de hits en la sección hero
 .hero__carousel {
   width: 100%;
-  max-width: 1000px; // Duplicado desde 500px
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
   
-  @media (max-width: 1200px) {
+  @include desktop-large {
     max-width: 90%;
   }
   
-  @media (max-width: 768px) {
+  @include tablet {
     max-width: 95%;
     margin: 0 auto;
   }
   
-  @media (max-width: 480px) {
+  @include mobile {
     max-width: 100%;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
   }
 }
 
@@ -27,6 +31,14 @@
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+
+  @include tablet {
+    border-radius: 15px;
+  }
+
+  @include mobile {
+    border-radius: 12px;
+  }
 }
 
 .hero__carousel-track {
@@ -49,13 +61,30 @@
 .hero__hit {
   position: relative;
   width: 100%;
-  height: 600px; // Duplicado desde 300px
+  height: 600px;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  padding: 3rem; // Aumentado desde 2rem
+  padding: 3rem;
   box-sizing: border-box;
+
+  @include desktop {
+    height: 500px;
+    padding: 2.5rem;
+  }
+
+  @include tablet {
+    height: 400px;
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  @include mobile {
+    height: 300px;
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
   
   // Agregar overlay oscuro para mejor legibilidad del texto
   &::before {
@@ -188,12 +217,16 @@
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
-  padding: 0 15px; // Aumentado desde 10px
+  padding: 0 15px;
   pointer-events: none;
   z-index: 3;
   
-  @media (max-width: 768px) {
+  @include tablet {
     padding: 0 10px;
+  }
+
+  @include mobile {
+    padding: 0 5px;
   }
 }
 
@@ -201,22 +234,38 @@
   background: rgba(255, 255, 255, 0.8);
   border: none;
   border-radius: 50%;
-  width: 60px; // Aumentado desde 40px
-  height: 60px; // Aumentado desde 40px
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 28px; // Aumentado desde 20px
+  font-size: 28px;
   font-weight: bold;
   color: #333;
   transition: all 0.3s ease;
   pointer-events: all;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  @include tablet {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
   
   &:hover {
     background: #fff;
     transform: scale(1.1);
+
+    @include mobile {
+      transform: scale(1.05);
+    }
   }
   
   @media (max-width: 768px) {
@@ -236,18 +285,38 @@
 .hero__carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: 12px; // Aumentado desde 8px
-  margin-top: 1.5rem; // Aumentado desde 1rem
+  gap: 12px;
+  margin-top: 1.5rem;
+
+  @include tablet {
+    gap: 10px;
+    margin-top: 1.25rem;
+  }
+
+  @include mobile {
+    gap: 8px;
+    margin-top: 1rem;
+  }
 }
 
 .hero__carousel-dot {
-  width: 16px; // Aumentado desde 12px
-  height: 16px; // Aumentado desde 12px
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
+
+  @include tablet {
+    width: 14px;
+    height: 14px;
+  }
+
+  @include mobile {
+    width: 12px;
+    height: 12px;
+  }
   
   &.active {
     background: #fff;
@@ -256,11 +325,6 @@
   
   &:hover {
     background: rgba(255, 255, 255, 0.8);
-  }
-  
-  @media (max-width: 480px) {
-    width: 12px;
-    height: 12px;
   }
 }
 

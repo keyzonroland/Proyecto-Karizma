@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use 'variables' as *;
 
 // Mixins reutilizables
 @mixin flex-center {
@@ -8,4 +9,62 @@
 }
 @mixin glossy-bg {
   background: $color-bg-glossy;
+}
+
+// Mixins para breakpoints responsivos
+@mixin mobile-xs {
+  @media (max-width: #{$breakpoint-xs}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: #{$breakpoint-md + 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: #{$breakpoint-lg + 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+// Mixin para contenedores responsivos
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  
+  @include tablet {
+    padding: 0 0.75rem;
+  }
+  
+  @include mobile {
+    padding: 0 0.5rem;
+  }
 }

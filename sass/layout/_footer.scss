@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
 
 // Estilos para el pie de página
 .footer {
@@ -9,25 +10,61 @@
   padding: 2.5rem 0 1.5rem 0;
   text-align: center;
   margin-top: 2rem;
+
+  @include tablet {
+    padding: 2rem 0 1rem 0;
+  }
+
+  @include mobile {
+    padding: 1.5rem 0 1rem 0;
+  }
 }
+
 .footer__content {
+  @include container;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+
+  @include tablet {
+    gap: 1rem;
+  }
+
+  @include mobile {
+    gap: 0.75rem;
+  }
 }
-.footer__logo img {
-  height: 110px;
-  width: auto;
-  margin-bottom: 0.5rem;
+
+.footer__logo {
+  img {
+    height: 110px;
+    width: auto;
+    margin-bottom: 0.5rem;
+
+    @include tablet {
+      height: 80px;
+    }
+
+    @include mobile {
+      height: 60px;
+    }
+  }
 }
+
 .footer__info {
   font-size: 1rem;
   color: $color-white;
+
+  @include mobile {
+    font-size: 0.9rem;
+  }
+
+  p {
+    margin: 0.2rem 0;
+  }
 }
-.footer__info p {
-  margin: 0.2rem 0;
-}
+
 .footer__social-label {
   color: $color-accent;
   font-size: 1.1rem;
@@ -35,7 +72,12 @@
   margin-bottom: 0.2rem;
   letter-spacing: 1px;
   display: block;
+
+  @include mobile {
+    font-size: 1rem;
+  }
 }
+
 .footer__social-icons {
   display: flex;
   justify-content: center;
@@ -43,6 +85,14 @@
   gap: 1.2rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+
+  @include tablet {
+    gap: 1rem;
+  }
+
+  @include mobile {
+    gap: 0.75rem;
+  }
 }
 .footer__icon {
   width: 2.5rem;
@@ -53,19 +103,40 @@
   filter: brightness(0) invert(1);
   vertical-align: middle;
   transition: transform 0.2s;
-}
-.footer__icon:hover {
-  transform: scale(1.15);
-  filter: brightness(0) invert(1) drop-shadow(0 0 8px $color-accent);
-}
 
-.footer__icon.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
-.footer__icon.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
-.footer__icon.nav__icon--yt {
-  background-image: url('../assets/images/youtube.svg');
-  filter: none;
+  @include tablet {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @include mobile {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: 0 0.25rem;
+  }
+
+  &:hover {
+    transform: scale(1.15);
+    filter: brightness(0) invert(1) drop-shadow(0 0 8px $color-accent);
+  }
+
+  &.nav__icon--fb { 
+    background-image: url('../assets/images/facebook.svg'); 
+  }
+  
+  &.nav__icon--ig { 
+    background-image: url('../assets/images/instagram.svg'); 
+  }
+  
+  &.nav__icon--yt {
+    background-image: url('../assets/images/youtube.svg');
+    filter: none;
+  }
+  
+  &.nav__icon--tt { 
+    background-image: url('../assets/images/tiktok.svg'); 
+  }
 }
-.footer__icon.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }
 
 .footer__designer {
   color: #999;
@@ -86,6 +157,32 @@
     
     &:hover {
       color: $color-accent;
+    }
+  }
+  // Navegación del footer para SEO
+  &__nav {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    
+    a {
+      color: $color-accent;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: $color-white;
+        text-decoration: underline;
+      }
+      
+      &:focus {
+        outline: 2px solid $color-accent;
+        outline-offset: 2px;
+      }
+    }
+    
+    @include mobile {
+      font-size: 0.8rem;
+      text-align: center;
     }
   }
 }
