@@ -1,0 +1,242 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
+// Mobile Menu Component
+// ===================================
+
+// Botón hamburguesa
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+  
+  @include respond-to('mobile') {
+    display: flex;
+  }
+  
+  &:hover {
+    opacity: 0.7;
+  }
+  
+  &.active {
+    .nav__toggle-line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}
+
+.nav__toggle-line {
+  width: 25px;
+  height: 3px;
+  background-color: $color-white;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+// Menú móvil
+.nav__mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 350px;
+  height: 100vh;
+  background: linear-gradient(135deg, $color-primary 0%, lighten($color-primary, 10%) 100%);
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  
+  &.active {
+    right: 0;
+  }
+  
+  @include respond-to('tablet') {
+    display: none;
+  }
+}
+
+// Header del menú móvil
+.nav__mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.nav__mobile-logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav__mobile-close {
+  background: none;
+  border: none;
+  color: $color-white;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 5px 10px;
+  line-height: 1;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+// Contenido del menú móvil
+.nav__mobile-content {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+.nav__mobile-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: $color-white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+  
+  &--cta {
+    background: rgba(255, 255, 255, 0.15);
+    margin: 10px 20px;
+    border-radius: 8px;
+    border-bottom: none;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.02);
+    }
+  }
+}
+
+.nav__mobile-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.nav__mobile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__mobile-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.nav__mobile-subtitle {
+  font-size: 12px;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+// Footer del menú móvil
+.nav__mobile-footer {
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+  p {
+    color: $color-white;
+    font-size: 14px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+  }
+}
+
+.nav__mobile-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  
+  a {
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// Overlay
+.nav__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  @include respond-to('tablet') {
+    display: none;
+  }
+}
+
+// Ocultar fotos del menú en móvil
+.nav__photos--desktop {
+  @include respond-to('mobile') {
+    display: none;
+  }
+}
+
+// Ajustes al header para el botón hamburguesa
+.nav__brand {
+  @include respond-to('mobile') {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+// Prevenir scroll cuando el menú está abierto
+body.menu-open {
+  overflow: hidden;
+  
+  @include respond-to('tablet') {
+    overflow: auto;
+  }
+}

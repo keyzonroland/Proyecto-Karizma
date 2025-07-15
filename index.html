@@ -185,8 +185,15 @@
       <div class="nav__brand">
         <div class="nav__logo logo"><img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma"></div>
         
+        <!-- Botón hamburguesa para móvil -->
+        <button class="nav__toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+        
         <!-- Fotos del menú al lado del logo -->
-        <div class="nav__photos">
+        <div class="nav__photos nav__photos--desktop">
           <div class="nav__photo-item nav__dropdown">
             <a href="#" class="nav__photo-link">
               <img src="./assets/images/karizma.png" alt="Próximos Eventos" class="nav__photo-img">
@@ -229,6 +236,70 @@
             <a href="https://wa.me/56997100768" class="nav__photo-label" target="_blank" rel="noopener">Contrataciones</a>
           </div>
         </div>
+        
+        <!-- Menú móvil hamburguesa -->
+        <div class="nav__mobile-menu">
+          <div class="nav__mobile-header">
+            <img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma" class="nav__mobile-logo">
+            <button class="nav__mobile-close" aria-label="Cerrar menú">&times;</button>
+          </div>
+          
+          <div class="nav__mobile-content">
+            <a href="#" class="nav__mobile-link">
+              <span class="nav__mobile-icon">📅</span>
+              <div class="nav__mobile-info">
+                <span class="nav__mobile-title">Próximos Eventos</span>
+                <span class="nav__mobile-subtitle">Ver fechas disponibles</span>
+              </div>
+            </a>
+            
+            <a href="#quienes-somos" class="nav__mobile-link">
+              <span class="nav__mobile-icon">👥</span>
+              <div class="nav__mobile-info">
+                <span class="nav__mobile-title">Quiénes Somos</span>
+                <span class="nav__mobile-subtitle">Nuestra historia</span>
+              </div>
+            </a>
+            
+            <a href="#discografia" class="nav__mobile-link">
+              <span class="nav__mobile-icon">🎵</span>
+              <div class="nav__mobile-info">
+                <span class="nav__mobile-title">Discografía</span>
+                <span class="nav__mobile-subtitle">Nuestros álbumes</span>
+              </div>
+            </a>
+            
+            <a href="#conocenos" class="nav__mobile-link">
+              <span class="nav__mobile-icon">🎤</span>
+              <div class="nav__mobile-info">
+                <span class="nav__mobile-title">Conócenos</span>
+                <span class="nav__mobile-subtitle">Los integrantes</span>
+              </div>
+            </a>
+            
+            <a href="https://wa.me/56997100768" class="nav__mobile-link nav__mobile-link--cta" target="_blank" rel="noopener">
+              <span class="nav__mobile-icon">📞</span>
+              <div class="nav__mobile-info">
+                <span class="nav__mobile-title">Contrataciones</span>
+                <span class="nav__mobile-subtitle">¡Contáctanos ahora!</span>
+              </div>
+            </a>
+          </div>
+          
+          <div class="nav__mobile-footer">
+            <p>Síguenos en redes sociales</p>
+            <div class="nav__mobile-social">
+              <a href="https://www.facebook.com/grupo.karizma" target="_blank" rel="noopener nofollow" aria-label="Facebook">📘</a>
+              <a href="https://www.instagram.com/grupokarizma" target="_blank" rel="noopener nofollow" aria-label="Instagram">📷</a>
+              <a href="https://youtube.com/@grupokarizma2025" target="_blank" rel="noopener nofollow" aria-label="YouTube">📺</a>
+              <a href="https://www.tiktok.com/@grupo.karizma" target="_blank" rel="noopener nofollow" aria-label="TikTok">🎬</a>
+              <a href="https://open.spotify.com/intl-es/artist/7uElX0IuvYnwFr1MS74Zk6" target="_blank" rel="noopener nofollow" aria-label="Spotify">🎶</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Overlay para el menú móvil -->
+        <div class="nav__overlay"></div>
       </div>
     </nav>
     </header>
@@ -602,7 +673,7 @@
         </div>
         <div class="footer__info">
           <!-- SEO Enhanced Copyright -->
-          <p>&copy; 2025 Grupo Karizma | Banda Chilena de Música Tropical y Topikal Ranchero | Todos los derechos reservados</p>
+          <p>&copy; 2025 Grupo Karizma | Banda Chilena de Música Tropical Ranchera | Todos los derechos reservados</p>
           
           <!-- Internal Navigation for SEO -->
           <nav class="footer__nav" aria-label="Enlaces principales">
@@ -618,7 +689,7 @@
             <a href="https://www.instagram.com/grupokarizma?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="footer__icon nav__icon--ig" aria-label="Síguenos en Instagram - Grupo Karizma" target="_blank" rel="noopener nofollow"></a>
             <a href="https://youtube.com/@grupokarizma2025?si=MflbNOGcHAdp4DvA" class="footer__icon nav__icon--yt" aria-label="Suscríbete a nuestro canal de YouTube - Grupo Karizma" target="_blank" rel="noopener nofollow"></a>
             <a href="https://www.tiktok.com/@grupo.karizma?refer=creator_embed" class="footer__icon nav__icon--tt" aria-label="Síguenos en TikTok - Grupo Karizma" target="_blank" rel="noopener nofollow"></a>
-            <a href="https://open.spotify.com/artist/5pMt96rmevGv2LKs3gN7It" class="footer__icon nav__icon--spotify" aria-label="Escúchanos en Spotify - Grupo Karizma" target="_blank" rel="noopener nofollow"></a>
+            <a href="https://open.spotify.com/intl-es/artist/7uElX0IuvYnwFr1MS74Zk6?si=V_lIwE_xQSyb6-X0HO6l-g" class="hero__social-icon hero__social-icon--spotify" aria-label="Spotify - Grupo Karizma" target="_blank" rel="noopener nofollow"></a>
           </div>
           <div class="footer__designer">
             <p>Desarrollado por: Carlos Ibáñez</p>
