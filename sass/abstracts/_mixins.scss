@@ -92,6 +92,21 @@
   }
 }
 
+// Mixin para contenedores responsivos
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  
+  @include tablet {
+    padding: 0 1.5rem;
+  }
+  
+  @include mobile {
+    padding: 0 1rem;
+  }
+}
+
 @mixin desktop-large {
   @media (min-width: #{$breakpoint-xl}) {
     @content;

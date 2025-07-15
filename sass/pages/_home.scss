@@ -58,13 +58,15 @@
   margin-right: calc(-50vw + 50%);
 
   @include tablet {
-    min-height: 90vh;
-    padding-top: 5rem;
+    min-height: 100vh;
+    padding-top: 4rem;
   }
 
   @include mobile {
-    min-height: 80vh;
-    padding-top: 3rem;
+    min-height: 100vh;
+    padding-top: 6rem;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &__image-bg {
@@ -366,12 +368,16 @@
   }
 
   @include mobile {
-    padding: 3rem 0;
-    scroll-margin-top: 60px;
+    padding: 2rem 0;
+    scroll-margin-top: 80px;
   }
   
   &__container {
     @include container;
+    
+    @include mobile {
+      padding: 0 1rem;
+    }
   }
   
   &__visual {
@@ -641,8 +647,9 @@
     }
 
     @include mobile {
-      padding: 2rem 0.5rem;
+      padding: 1.5rem 1rem;
       gap: 1.5rem;
+      grid-template-columns: 1fr;
     }
   }
   
