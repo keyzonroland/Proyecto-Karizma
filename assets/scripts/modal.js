@@ -1,15 +1,8 @@
 // Modal para información de integrantes
+console.log('*** MODAL.JS CARGADO ***');
+
 class MemberModal {
     constructor() {
-        this.modal = document.getElementById('memberModal');
-        this.overlay = this.modal.querySelector('.member-modal__overlay');
-        this.closeBtn = this.modal.querySelector('.member-modal__close');
-        this.memberImage = document.getElementById('memberModalImage');
-        this.memberName = document.getElementById('memberModalName');
-        this.memberRole = document.getElementById('memberModalRole');
-        this.memberDescription = document.getElementById('memberModalDescription');
-        
-        // Información de cada integrante
         this.memberData = {
             juan: {
                 name: "Juan González",
@@ -21,7 +14,7 @@ class MemberModal {
                 name: "Alexander Vargas",
                 role: "Voz",
                 image: "./assets/images/alexander.jpg",
-                description: "Vocalista principal de Grupo Karizma, conocido por su potente voz y animacion excepcional. Alexander aporta energía y conexión con el público, siendo la cara visible del grupo en muchas presentaciones. Su versatilidad vocal le permite interpretar desde baladas románticas hasta los temas más bailables."
+                description: "Vocalista principal de Grupo Karizma, conocido por su potente voz y animación excepcional. Alexander aporta energía y conexión con el público, siendo la cara visible del grupo en muchas presentaciones. Su versatilidad vocal le permite interpretar desde baladas románticas hasta los temas más bailables."
             },
             carlos: {
                 name: "Carlos Ibáñez (KEYZON)",
@@ -59,21 +52,49 @@ class MemberModal {
     }
     
     init() {
-        // Agregar event listeners a cada integrante
-        const members = document.querySelectorAll('.gallery-section__member[data-member]');
-        members.forEach(member => {
-            member.addEventListener('click', () => {
-                const memberKey = member.getAttribute('data-member');
-                this.openModal(memberKey);
+        // Verificar que los elementos del modal existan
+        this.modal = document.getElementById('memberModal');
+        if (!this.modal) {
+            console.error('Modal no encontrado');
+            return;
+        }
+        
+        this.overlay = this.modal.querySelector('.member-modal__overlay');
+        this.closeBtn = this.modal.querySelector('.member-modal__close');
+        this.memberImage = document.getElementById('memberModalImage');
+        this.memberName = document.getElementById('memberModalName');
+        this.memberRole = document.getElementById('memberModalRole');
+        this.memberDescription = document.getElementById('memberModalDescription');
+        
+        this.setupEventListeners();
+    }
+    
+    setupEventListeners() {
+        // Event listeners para los integrantes
+        const memberElements = document.querySelectorAll('.gallery-section__member[data-member]');
+        console.log('Integrantes encontrados:', memberElements.length);
+        
+        memberElements.forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.preventDefault();
+                const memberId = element.dataset.member;
+                console.log('Click en integrante:', memberId);
+                this.showMember(memberId);
             });
             
-            // Agregar cursor pointer para indicar que es clickeable
-            member.style.cursor = 'pointer';
+            // Agregar cursor pointer
+            element.style.cursor = 'pointer';
+            element.style.transition = 'all 0.3s ease';
         });
         
-        // Event listeners para cerrar el modal
-        this.closeBtn.addEventListener('click', () => this.closeModal());
-        this.overlay.addEventListener('click', () => this.closeModal());
+        // Event listeners para cerrar modal
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.closeModal());
+        }
+        
+        if (this.overlay) {
+            this.overlay.addEventListener('click', () => this.closeModal());
+        }
         
         // Cerrar con tecla Escape
         document.addEventListener('keydown', (e) => {
@@ -83,29 +104,54 @@ class MemberModal {
         });
     }
     
-    openModal(memberKey) {
-        const member = this.memberData[memberKey];
-        if (!member) return;
+    showMember(memberId) {
+        const member = this.memberData[memberId];
+        if (!member) {
+            console.error('Integrante no encontrado:', memberId);
+            return;
+        }
+        
+        console.log('Mostrando integrante:', member.name);
         
         // Actualizar contenido del modal
-        this.memberImage.src = member.image;
-        this.memberImage.alt = member.name;
-        this.memberName.textContent = member.name;
-        this.memberRole.textContent = member.role;
-        this.memberDescription.textContent = member.description;
+        if (this.memberImage) {
+            this.memberImage.src = member.image;
+            this.memberImage.alt = member.name;
+            console.log('Imagen asignada:', member.image);
+        }
+        if (this.memberName) {
+            this.memberName.textContent = member.name;
+            console.log('Nombre asignado:', member.name);
+        }
+        if (this.memberRole) {
+            this.memberRole.textContent = member.role;
+            console.log('Rol asignado:', member.role);
+        }
+        if (this.memberDescription) {
+            this.memberDescription.textContent = member.description;
+            console.log('Descripción asignada:', member.description);
+        }
         
         // Mostrar modal
         this.modal.classList.add('member-modal--active');
-        document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+        document.body.style.overflow = 'hidden';
+        console.log('Modal mostrado con clase:', this.modal.className);
     }
     
     closeModal() {
         this.modal.classList.remove('member-modal--active');
-        document.body.style.overflow = ''; // Restaurar scroll del body
+        document.body.style.overflow = '';
     }
 }
 
-// Inicializar modal cuando el DOM esté listo
+// Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM cargado, inicializando modal...');
     new MemberModal();
 });
+
+// También inicializar si el DOM ya está cargado
+if (document.readyState !== 'loading') {
+    console.log('DOM ya está cargado, inicializando modal...');
+    new MemberModal();
+}

@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
 }
 .footer__logo img {
   height: 110px;
@@ -58,6 +58,7 @@
   transform: scale(1.15);
   filter: brightness(0) invert(1) drop-shadow(0 0 8px $color-accent);
 }
+
 .footer__icon.nav__icon--fb { background-image: url('../assets/images/facebook.svg'); }
 .footer__icon.nav__icon--ig { background-image: url('../assets/images/instagram.svg'); }
 .footer__icon.nav__icon--yt {
@@ -65,3 +66,26 @@
   filter: none;
 }
 .footer__icon.nav__icon--tt { background-image: url('../assets/images/tiktok.svg'); }
+
+.footer__designer {
+  color: #999;
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.8rem;
+  
+  p {
+    margin: 0.3rem 0;
+  }
+  
+  a {
+    color: #999;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
