@@ -1,22 +1,78 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
 @use 'sass:color';
 
-// Estilos para botones reutilizables
+// Botones con modelo de cajas completo: padding, border, margin y efectos
 .button {
-  padding: 0.5em 1.5em;
-  border: none;
-  border-radius: 4px;
+  /* Modelo de cajas para botones */
+  padding: 12px 24px; /* Padding interno */
+  margin: 8px; /* Espacio entre botones */
+  border: 2px solid $color-primary; /* Borde definido */
+  border-radius: 8px; /* Botones redondeados */
+  
+  /* Estilos visuales */
   background: $color-primary;
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  
+  /* Transiciones para efectos */
+  transition: all 0.3s ease;
+  
+  /* Efecto hover */
   &:hover {
     background: color.scale($color-primary, $lightness: -20%);
+    border-color: color.scale($color-primary, $lightness: -20%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Variantes de botones */
+  &--secondary {
+    background: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+    
+    &:hover {
+      background: $color-primary;
+      color: #fff;
+    }
+  }
+  
+  &--large {
+    padding: 16px 32px;
+    font-size: 16px;
+    margin: 12px;
+  }
+  
+  &--small {
+    padding: 8px 16px;
+    font-size: 12px;
+    margin: 4px;
+  }
+  
+  /* Responsividad del modelo de cajas */
+  @include tablet {
+    padding: 10px 20px;
+    margin: 6px;
+    font-size: 13px;
+  }
+  
+  @include mobile {
+    padding: 8px 16px;
+    margin: 4px;
+    font-size: 12px;
+    border-width: 1px;
   }
 }
 
-// Botón flotante de WhatsApp
+// Botón flotante de WhatsApp con modelo de cajas
 .whatsapp-btn {
   position: fixed !important;
   bottom: 20px !important;
@@ -27,6 +83,9 @@
   background: #25D366 !important;
   color: white !important;
   border-radius: 50% !important;
+  border: 2px solid #25D366 !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

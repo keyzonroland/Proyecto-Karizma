@@ -2,29 +2,29 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/mixins' as *;
 
-// Estilos del header y navegación principal
+// Header - Todo el ancho con padding 10px y fondo sólido
 .header {
   width: 100%;
-  background: transparent;
+  background: #2c3e50; /* Fondo sólido */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
   @include flex-center;
   justify-content: flex-start;
-  padding: 1rem 3rem;
+  padding: 0; /* Removemos padding adicional ya que el header tiene 10px */
   display: flex;
   align-items: center;
-
-  @include desktop {
-    padding: 1rem 2rem;
-  }
+  max-width: 100%;
 
   @include tablet {
-    padding: 0.75rem 1rem;
+    padding: 0;
   }
 
   @include mobile {

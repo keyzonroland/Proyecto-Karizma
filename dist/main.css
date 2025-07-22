@@ -1,5 +1,9 @@
 @charset "UTF-8";
-/* Reset y estilos base */
+/* Reset y estilos base - Modelo de cajas */
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -16,6 +20,36 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+}
+
+/* Contenedor principal - 80% del ancho, centrado con borde y padding */
+.main-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+@media (max-width: 768px) {
+  .main-container {
+    width: 90%;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .main-container {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 /* Borde oscuro a cada letra del título Quienes Somos */
@@ -50,13 +84,66 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 3rem;
 }
 
+/* Utilidades del modelo de cajas para responsividad */
+.u-padding-responsive {
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .u-padding-responsive {
+    padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .u-padding-responsive {
+    padding: 10px;
+  }
+}
+
+.u-margin-responsive {
+  margin: 20px 0;
+}
+@media (max-width: 768px) {
+  .u-margin-responsive {
+    margin: 15px 0;
+  }
+}
+@media (max-width: 480px) {
+  .u-margin-responsive {
+    margin: 10px 0;
+  }
+}
+
+/* Utilidades para ajustar elementos en pantallas pequeñas */
+@media (max-width: 480px) {
+  .u-full-width-mobile {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .u-reduce-padding-mobile {
+    padding: 5px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .u-reduce-margin-mobile {
+    margin: 5px 0 !important;
+  }
+}
+
 .header {
   width: 100%;
-  background: transparent;
+  background: #2c3e50; /* Fondo sólido */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
@@ -64,18 +151,14 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   justify-content: flex-start;
-  padding: 1rem 3rem;
+  padding: 0; /* Removemos padding adicional ya que el header tiene 10px */
   display: flex;
   align-items: center;
-}
-@media (max-width: 1024px) {
-  .nav {
-    padding: 1rem 2rem;
-  }
+  max-width: 100%;
 }
 @media (max-width: 768px) {
   .nav {
-    padding: 0.75rem 1rem;
+    padding: 0;
   }
 }
 @media (max-width: 480px) {
@@ -450,41 +533,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
   width: 100%;
-  background: #0e0f11;
+  height: 100px;
+  background: #34495e; /* Fondo contrastante con el header */
   color: #fff;
-  padding: 2.5rem 0 1.5rem 0;
+  padding: 20px;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @media (max-width: 768px) {
   .footer {
-    padding: 2rem 0 1rem 0;
+    height: 80px;
+    padding: 15px;
+    margin-top: 40px;
   }
 }
 @media (max-width: 480px) {
   .footer {
-    padding: 1.5rem 0 1rem 0;
+    height: 70px;
+    padding: 10px;
+    margin-top: 30px;
   }
 }
 
 .footer__content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-}
-@media (max-width: 768px) {
-  .footer__content {
-    padding: 0 0.75rem;
-  }
-}
-@media (max-width: 480px) {
-  .footer__content {
-    padding: 0 0.5rem;
-  }
+  gap: 10px;
+  width: 100%;
 }
 @media (max-width: 768px) {
   .footer__content {
@@ -880,16 +960,66 @@ body.menu-open {
 }
 
 .button {
-  padding: 0.5em 1.5em;
-  border: none;
-  border-radius: 4px;
+  /* Modelo de cajas para botones */
+  padding: 12px 24px; /* Padding interno */
+  margin: 8px; /* Espacio entre botones */
+  border: 2px solid #007bff; /* Borde definido */
+  border-radius: 8px; /* Botones redondeados */
+  /* Estilos visuales */
   background: #007bff;
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  /* Transiciones para efectos */
+  transition: all 0.3s ease;
+  /* Efecto hover */
+  /* Variantes de botones */
+  /* Responsividad del modelo de cajas */
 }
 .button:hover {
   background: rgb(0, 98.4, 204);
+  border-color: rgb(0, 98.4, 204);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.button--secondary {
+  background: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+.button--secondary:hover {
+  background: #007bff;
+  color: #fff;
+}
+.button--large {
+  padding: 16px 32px;
+  font-size: 16px;
+  margin: 12px;
+}
+.button--small {
+  padding: 8px 16px;
+  font-size: 12px;
+  margin: 4px;
+}
+@media (max-width: 768px) {
+  .button {
+    padding: 10px 20px;
+    margin: 6px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  .button {
+    padding: 8px 16px;
+    margin: 4px;
+    font-size: 12px;
+    border-width: 1px;
+  }
 }
 
 .whatsapp-btn {
@@ -902,6 +1032,9 @@ body.menu-open {
   background: #25D366 !important;
   color: white !important;
   border-radius: 50% !important;
+  border: 2px solid #25D366 !important;
+  padding: 0 !important;
+  margin: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;

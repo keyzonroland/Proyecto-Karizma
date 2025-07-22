@@ -1,7 +1,55 @@
+@use '../abstracts/mixins' as *;
+
 /* Utilidades varias */
 .u-center {
   text-align: center;
 }
 .u-mb-lg {
   margin-bottom: 3rem;
+}
+
+/* Utilidades del modelo de cajas para responsividad */
+.u-padding-responsive {
+  padding: 20px;
+  
+  @include tablet {
+    padding: 15px;
+  }
+  
+  @include mobile {
+    padding: 10px;
+  }
+}
+
+.u-margin-responsive {
+  margin: 20px 0;
+  
+  @include tablet {
+    margin: 15px 0;
+  }
+  
+  @include mobile {
+    margin: 10px 0;
+  }
+}
+
+/* Utilidades para ajustar elementos en pantallas pequeñas */
+.u-full-width-mobile {
+  @include mobile {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+.u-reduce-padding-mobile {
+  @include mobile {
+    padding: 5px !important;
+  }
+}
+
+.u-reduce-margin-mobile {
+  @include mobile {
+    margin: 5px 0 !important;
+  }
 }
