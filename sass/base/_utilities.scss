@@ -53,3 +53,36 @@
     margin: 5px 0 !important;
   }
 }
+
+/* Utilidades para mejorar visualización - Prevenir cortes */
+.u-no-overflow {
+  overflow: visible !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.u-full-container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Contenedor flexible para contenido ancho */
+.u-wide-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 0 10px;
+  box-sizing: border-box;
+  
+  @include tablet {
+    padding: 0 5px;
+  }
+  
+  @include mobile {
+    padding: 0 2px;
+  }
+}
