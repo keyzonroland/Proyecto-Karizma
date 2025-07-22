@@ -2,30 +2,39 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/mixins' as *;
 
-// Estilos para el pie de página
+// Footer - Height 100px, padding 20px, margin-top 50px, fondo contrastante
 .footer {
   width: 100%;
-  background: $color-footer-bg;
+  height: 100px;
+  background: #34495e; /* Fondo contrastante con el header */
   color: $color-white;
-  padding: 2.5rem 0 1.5rem 0;
+  padding: 20px;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @include tablet {
-    padding: 2rem 0 1rem 0;
+    height: 80px;
+    padding: 15px;
+    margin-top: 40px;
   }
 
   @include mobile {
-    padding: 1.5rem 0 1rem 0;
+    height: 70px;
+    padding: 10px;
+    margin-top: 30px;
   }
 }
 
 .footer__content {
-  @include container;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 10px;
+  width: 100%;
 
   @include tablet {
     gap: 1rem;

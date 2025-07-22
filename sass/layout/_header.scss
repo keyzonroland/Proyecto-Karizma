@@ -2,29 +2,32 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/mixins' as *;
 
-// Estilos del header y navegación principal
+// Header optimizado - Todo el ancho con padding 10px y fondo sólido
 .header {
   width: 100%;
-  background: transparent;
+  background: rgba(44, 62, 80, 0.95); /* Fondo semi-transparente para mejor integración */
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
+  padding: 8px 10px; /* Padding reducido para más espacio */
+  box-sizing: border-box;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 .nav {
   @include flex-center;
-  justify-content: flex-start;
-  padding: 1rem 3rem;
+  justify-content: space-between; /* Mejor distribución del espacio */
+  padding: 0;
   display: flex;
   align-items: center;
-
-  @include desktop {
-    padding: 1rem 2rem;
-  }
+  max-width: 100%;
+  width: 100%;
 
   @include tablet {
-    padding: 0.75rem 1rem;
+    padding: 0;
+    justify-content: center;
   }
 
   @include mobile {

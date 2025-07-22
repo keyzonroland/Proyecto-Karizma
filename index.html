@@ -295,10 +295,10 @@
       </div>
     </nav>
     </header>
-    <br>
-    <br>
-    <br>
-        <main class="main">
+    
+    <!-- Contenedor principal optimizado para mejor visualización -->
+    <div class="main-container u-wide-content">
+        <main class="main u-no-overflow">
             <section class="hero">
                 <div class="hero__image-bg"></div>
                     <div class="hero__content">
@@ -630,7 +630,24 @@
                         </div>
                     </div>
                 </section>
+                
+                <!-- Sección de demostración del modelo de cajas para botones -->
+                <section class="button-demo u-center u-padding-responsive">
+                    <h2>Ejemplos del Modelo de Cajas - Botones</h2>
+                    <p>Botones con padding, margin, border y efectos hover:</p>
+                    
+                    <div class="button-demo__container">
+                        <button class="button">Botón Principal</button>
+                        <button class="button button--secondary">Botón Secundario</button>
+                        <button class="button button--large">Botón Grande</button>
+                        <button class="button button--small">Botón Pequeño</button>
+                    </div>
+                    
+                    <p><em>Cada botón implementa el modelo de cajas con padding interno, bordes definidos, margins para espaciado y efectos hover.</em></p>
+                </section>
         </main>
+    </div> <!-- Fin del contenedor principal -->
+    
     <footer class="footer" role="contentinfo">
     <div class="footer__content">
         <div class="footer__logo">

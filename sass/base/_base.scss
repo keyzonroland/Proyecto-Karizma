@@ -1,7 +1,11 @@
 @use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-/* Reset y estilos base */
+/* Reset y estilos base - Modelo de cajas */
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -18,4 +22,34 @@ body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal - Ajustado para mejor visualización */
+.main-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  margin-top: 80px; /* Espacio para el header fijo */
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  min-height: calc(100vh - 200px); /* Asegurar altura mínima */
+
+  @include tablet {
+    width: 98%;
+    padding: 12px;
+    margin-top: 70px;
+    margin-bottom: 15px;
+  }
+
+  @include mobile {
+    width: 99%;
+    padding: 8px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
 }
