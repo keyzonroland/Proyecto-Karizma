@@ -1324,6 +1324,12 @@ body.menu-open {
   .flex-hits-container {
     gap: 1rem;
     margin: 1.5rem 0;
+    justify-content: center;
+  }
+  
+  .hero__hits .flex-hits-container {
+    justify-content: center;
+    align-items: center;
   }
 }
 @media (max-width: 480px) {
@@ -1332,6 +1338,17 @@ body.menu-open {
     gap: 1rem;
     margin: 1rem 0;
     padding: 0 1rem;
+    align-items: center;
+  }
+  
+  .hero__hits .flex-hits-container {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero__hits .flex-hit {
+    max-width: 280px;
+    width: 100%;
   }
 }
 
