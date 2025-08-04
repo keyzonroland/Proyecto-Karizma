@@ -2002,7 +2002,7 @@ body.menu-open {
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  background: url("../assets/images/karizma.png") center center no-repeat;
+  background: url("../assets/images/karizma.jpg") center center no-repeat;
   background-size: contain;
   opacity: 0.25;
   z-index: 0;
