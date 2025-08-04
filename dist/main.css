@@ -1317,7 +1317,7 @@ body.menu-open {
   gap: 1.5rem;
   justify-content: center;
   align-items: stretch;
-  margin: 2rem 0;
+  margin: 1rem 0;
   flex-wrap: wrap;
 }
 @media (max-width: 768px) {
@@ -1350,6 +1350,16 @@ body.menu-open {
     max-width: 280px;
     width: 100%;
   }
+}
+
+.hero__hits {
+  position: relative;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border-radius: 2rem;
+  padding: 2rem 1rem;
+  margin: 0 1rem;
 }
 
 .flex-hit {
@@ -1991,7 +2001,7 @@ body.menu-open {
   padding-top: 7rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #18181c 0%, #23232a 100%);
+  background: transparent;
   margin-bottom: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -2021,19 +2031,25 @@ body.menu-open {
   height: 100vh;
   background: url("../assets/images/karizma.jpg") center center no-repeat;
   background-size: contain;
-  opacity: 0.25;
+  opacity: 0.9;
   z-index: 0;
   pointer-events: none;
+  filter: saturate(1.2) brightness(1.0) contrast(1.1);
+  box-shadow: 0 0 40px rgba(224, 185, 115, 0.3);
 }
 @media (max-width: 768px) {
   .hero__image-bg {
-    opacity: 0.2;
-    background-size: cover;
+    opacity: 0.85;
+    background-size: contain;
+    filter: saturate(1.1) brightness(0.95) contrast(1.05);
+    box-shadow: 0 0 35px rgba(224, 185, 115, 0.25);
   }
 }
 @media (max-width: 480px) {
   .hero__image-bg {
-    opacity: 0.15;
+    opacity: 0.8;
+    filter: saturate(1.0) brightness(0.9) contrast(1.0);
+    box-shadow: 0 0 30px rgba(224, 185, 115, 0.2);
   }
 }
 .hero__content {
@@ -2043,15 +2059,22 @@ body.menu-open {
   text-align: center;
   color: #fff;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 60vh;
 }
 @media (max-width: 768px) {
   .hero__content {
     padding: 0 0.75rem;
+    padding-top: 50vh;
   }
 }
 @media (max-width: 480px) {
   .hero__content {
     padding: 0 0.5rem;
+    padding-top: 40vh;
   }
 }
 .hero__title {
