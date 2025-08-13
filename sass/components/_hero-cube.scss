@@ -1,0 +1,92 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Contenedor del cubo en el hero
+.hero__cube-wrapper {
+  position: relative;
+  width: min(60vmin, 520px);
+  height: min(60vmin, 520px);
+  margin: 2rem auto 1rem;
+  perspective: 1200px; // Profundidad 3D
+  z-index: 2;
+}
+
+// Escena 3D que gira
+.hero__cube-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-rotate 20s linear infinite;
+  will-change: transform;
+}
+
+// Pausar al pasar el mouse
+.hero__cube-wrapper:hover .hero__cube-scene {
+  animation-play-state: paused;
+}
+
+// Cara base
+.hero__cube-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 60px rgba(0,0,0,.45);
+  border: 1px solid rgba(224,185,115,.16);
+}
+
+// Imagen de la cara
+.hero__cube-face::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/images/karizma.jpg') center/cover no-repeat;
+  filter: contrast(1.02) saturate(1.05);
+}
+
+// Overlay de brillo
+.hero__cube-face::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 35%, rgba(0,0,0,.25) 100%);
+  pointer-events: none;
+}
+
+// Caras del cubo (mismo arte en todas para destacar marca)
+.hero__cube-face--front  { transform: translateZ(calc(min(60vmin,520px) / 2)); }
+.hero__cube-face--back   { transform: rotateY(180deg) translateZ(calc(min(60vmin,520px) / 2)); }
+.hero__cube-face--right  { transform: rotateY(90deg)  translateZ(calc(min(60vmin,520px) / 2)); }
+.hero__cube-face--left   { transform: rotateY(-90deg) translateZ(calc(min(60vmin,520px) / 2)); }
+.hero__cube-face--top    { transform: rotateX(90deg)  translateZ(calc(min(60vmin,520px) / 2)); }
+.hero__cube-face--bottom { transform: rotateX(-90deg) translateZ(calc(min(60vmin,520px) / 2)); }
+
+// Animación
+@keyframes cube-rotate {
+  0%   { transform: rotateX(0deg)   rotateY(0deg); }
+  25%  { transform: rotateX(0deg)   rotateY(90deg); }
+  50%  { transform: rotateX(90deg)  rotateY(180deg); }
+  75%  { transform: rotateX(180deg) rotateY(270deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+// Responsivo
+@include mobile {
+  .hero__cube-wrapper {
+    width: min(70vmin, 360px);
+    height: min(70vmin, 360px);
+    margin-top: 1rem;
+  }
+}
+
+// Accesibilidad: respetar reduce motion
+@media (prefers-reduced-motion: reduce) {
+  .hero__cube-scene {
+    animation: none;
+  }
+}

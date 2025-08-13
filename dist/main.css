@@ -1317,19 +1317,13 @@ body.menu-open {
   gap: 1.5rem;
   justify-content: center;
   align-items: stretch;
-  margin: 1rem 0;
+  margin: 2rem 0;
   flex-wrap: wrap;
 }
 @media (max-width: 768px) {
   .flex-hits-container {
     gap: 1rem;
     margin: 1.5rem 0;
-    justify-content: center;
-  }
-  
-  .hero__hits .flex-hits-container {
-    justify-content: center;
-    align-items: center;
   }
 }
 @media (max-width: 480px) {
@@ -1338,28 +1332,7 @@ body.menu-open {
     gap: 1rem;
     margin: 1rem 0;
     padding: 0 1rem;
-    align-items: center;
   }
-  
-  .hero__hits .flex-hits-container {
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .hero__hits .flex-hit {
-    max-width: 280px;
-    width: 100%;
-  }
-}
-
-.hero__hits {
-  position: relative;
-  z-index: 3;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
-  border-radius: 2rem;
-  padding: 2rem 1rem;
-  margin: 0 1rem;
 }
 
 .flex-hit {
@@ -1958,6 +1931,110 @@ body.menu-open {
   background: rgb(233.2456140351, 205.8771929825, 156.7543859649);
 }
 
+.hero__cube-wrapper {
+  position: relative;
+  width: min(60vmin, 520px);
+  height: min(60vmin, 520px);
+  margin: 2rem auto 1rem;
+  perspective: 1200px;
+  z-index: 2;
+}
+
+.hero__cube-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-rotate 20s linear infinite;
+  will-change: transform;
+}
+
+.hero__cube-wrapper:hover .hero__cube-scene {
+  animation-play-state: paused;
+}
+
+.hero__cube-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(224, 185, 115, 0.16);
+}
+
+.hero__cube-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/images/karizma.jpg") center/cover no-repeat;
+  filter: contrast(1.02) saturate(1.05);
+}
+
+.hero__cube-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
+  pointer-events: none;
+}
+
+.hero__cube-face--front {
+  transform: translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+.hero__cube-face--back {
+  transform: rotateY(180deg) translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+.hero__cube-face--right {
+  transform: rotateY(90deg) translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+.hero__cube-face--left {
+  transform: rotateY(-90deg) translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+.hero__cube-face--top {
+  transform: rotateX(90deg) translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+.hero__cube-face--bottom {
+  transform: rotateX(-90deg) translateZ(calc(min(60vmin, 520px) / 2));
+}
+
+@keyframes cube-rotate {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: rotateX(0deg) rotateY(90deg);
+  }
+  50% {
+    transform: rotateX(90deg) rotateY(180deg);
+  }
+  75% {
+    transform: rotateX(180deg) rotateY(270deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+@media (max-width: 480px) {
+  .hero__cube-wrapper {
+    width: min(70vmin, 360px);
+    height: min(70vmin, 360px);
+    margin-top: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__cube-scene {
+    animation: none;
+  }
+}
 .page {
   overflow-x: hidden;
   width: 100%;
@@ -2001,7 +2078,7 @@ body.menu-open {
   padding-top: 7rem;
   position: relative;
   overflow: hidden;
-  background: transparent;
+  background: linear-gradient(135deg, #18181c 0%, #23232a 100%);
   margin-bottom: 0;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -2010,13 +2087,13 @@ body.menu-open {
 @media (max-width: 768px) {
   .hero {
     min-height: 100vh;
-    padding-top: 2rem;
+    padding-top: 4rem;
   }
 }
 @media (max-width: 480px) {
   .hero {
     min-height: 100vh;
-    padding-top: 1.5rem;
+    padding-top: 6rem;
     padding-left: 0;
     padding-right: 0;
   }
@@ -2029,27 +2106,21 @@ body.menu-open {
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  background: url("../assets/images/karizma.jpg") center center no-repeat;
+  background: url("../assets/images/karizma.png") center center no-repeat;
   background-size: contain;
-  opacity: 0.9;
+  opacity: 0.25;
   z-index: 0;
   pointer-events: none;
-  filter: saturate(1.2) brightness(1.0) contrast(1.1);
-  box-shadow: 0 0 40px rgba(224, 185, 115, 0.3);
 }
 @media (max-width: 768px) {
   .hero__image-bg {
-    opacity: 0.85;
-    background-size: contain;
-    filter: saturate(1.1) brightness(0.95) contrast(1.05);
-    box-shadow: 0 0 35px rgba(224, 185, 115, 0.25);
+    opacity: 0.2;
+    background-size: cover;
   }
 }
 @media (max-width: 480px) {
   .hero__image-bg {
-    opacity: 0.8;
-    filter: saturate(1.0) brightness(0.9) contrast(1.0);
-    box-shadow: 0 0 30px rgba(224, 185, 115, 0.2);
+    opacity: 0.15;
   }
 }
 .hero__content {
@@ -2059,22 +2130,15 @@ body.menu-open {
   text-align: center;
   color: #fff;
   padding: 0 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-top: auto;
-  padding-top: 60vh;
 }
 @media (max-width: 768px) {
   .hero__content {
     padding: 0 0.75rem;
-    padding-top: 50vh;
   }
 }
 @media (max-width: 480px) {
   .hero__content {
     padding: 0 0.5rem;
-    padding-top: 40vh;
   }
 }
 .hero__title {
@@ -3190,7 +3254,7 @@ body.menu-open {
 }
 @media (max-width: 768px) {
   .hero {
-    padding-top: 2rem;
+    padding-top: 5rem;
   }
   .hero__title {
     font-size: 1.5rem;
@@ -3339,7 +3403,7 @@ body.menu-open {
 }
 @media (max-width: 480px) {
   .hero {
-    padding-top: 1.5rem;
+    padding-top: 3.5rem;
   }
   .hero__title {
     font-size: 1.1rem;
