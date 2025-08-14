@@ -24,6 +24,13 @@
   }
 }
 
+  // Cuando el cubo está presente, damos margen superior a los hits
+  .hero__cube-wrapper + .hero__hits {
+    margin-top: 1rem;
+    position: relative;
+    z-index: 5; // por encima del cubo
+  }
+
 .flex-hit {
   flex: 1 1 180px;
   min-width: 180px;
