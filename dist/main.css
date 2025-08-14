@@ -660,6 +660,30 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.footer__counter {
+  margin-top: 0.25rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+.footer__counter::before {
+  content: "👀";
+  display: inline-block;
+  line-height: 1;
+}
+.footer__counter #visitCount {
+  color: #e0b973;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(224, 185, 115, 0.25);
+}
+@media (max-width: 480px) {
+  .footer__counter {
+    font-size: 0.85rem;
+  }
+}
+
 .menu {
   position: relative;
 }
