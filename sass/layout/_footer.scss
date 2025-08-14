@@ -21,10 +21,14 @@
 }
 
 .footer__content {
+  // Declaraciones primero (evita mixed-decls)
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
+
+  // Luego mixins que generan reglas anidadas
+  @include container;
 
   @include tablet {
     gap: 1rem;
@@ -33,9 +37,6 @@
   @include mobile {
     gap: 0.75rem;
   }
-
-  // Mover los mixins que generan reglas anidadas al final para evitar mixed-decls
-  @include container;
 }
 
 .footer__logo {

@@ -373,8 +373,11 @@
   }
   
   &__container {
+    // Primero mixin contenedor
     @include container;
-    
+  }
+  // Override móvil del contenedor como regla separada para evitar mixed-decls
+  &__container {
     @include mobile {
       padding: 0 1rem;
     }
@@ -451,8 +454,8 @@
   
   &__text {
     background: rgba(24, 24, 28, 0.8);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
     border-radius: 1.5rem;
     padding: 3rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -628,12 +631,14 @@
   }
   
   &__content {
-    @include container;
-    padding: 4rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+  // Declaraciones primero
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  // Luego mixin con reglas anidadas
+  @include container;
 
     @include desktop {
       padding: 3rem 1.5rem;

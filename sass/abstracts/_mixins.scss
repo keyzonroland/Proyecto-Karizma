@@ -94,16 +94,18 @@
 
 // Mixin para contenedores responsivos
 @mixin container {
+  // Declaraciones base primero
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $container-padding;
   
+  // Reglas anidadas después para evitar mixed-decls
   @include tablet {
-    padding: 0 1.5rem;
+    padding: 0 0.75rem;
   }
   
   @include mobile {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 }
 
@@ -113,17 +115,4 @@
   }
 }
 
-// Mixin para contenedores responsivos
-@mixin container {
-  max-width: $container-max-width;
-  margin: 0 auto;
-  padding: 0 $container-padding;
-  
-  @include tablet {
-    padding: 0 0.75rem;
-  }
-  
-  @include mobile {
-    padding: 0 0.5rem;
-  }
-}
+// (Eliminado duplicado de container mixin)
