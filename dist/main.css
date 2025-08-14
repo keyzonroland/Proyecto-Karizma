@@ -1950,6 +1950,7 @@ body.menu-open {
   width: var(--cube-size);
   height: var(--cube-size);
   margin: 1.5rem auto 2rem;
+  -webkit-perspective: 1200px;
   perspective: 1200px;
   z-index: 1;
   filter: drop-shadow(0 16px 60px rgba(0, 0, 0, 0.45));
@@ -1959,9 +1960,13 @@ body.menu-open {
   position: relative;
   width: 100%;
   height: 100%;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-animation: cube-rotate 28s linear infinite;
   animation: cube-rotate 28s linear infinite;
   will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .hero__cube-wrapper:hover .hero__cube-scene {
@@ -1974,6 +1979,7 @@ body.menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
   border-radius: 0;
@@ -2045,11 +2051,44 @@ body.menu-open {
     height: var(--cube-size);
     margin-top: 0.5rem;
     margin-bottom: 1.25rem;
+    filter: none;
+  }
+}
+@media (max-width: 320px) {
+  .hero__cube-wrapper {
+    --cube-size: min(80vmin, 260px);
+    width: var(--cube-size);
+    height: var(--cube-size);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+@supports (-webkit-touch-callout: none) {
+  .hero__cube-wrapper {
+    filter: none;
   }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__cube-scene {
     animation: none;
+  }
+  .hero__cube-wrapper {
+    filter: none;
+  }
+  .hero__cube-face::after {
+    display: none;
+  }
+}
+@media (prefers-reduced-data: reduce) {
+  .hero__cube-scene {
+    -webkit-animation: cube-rotate 40s linear infinite;
+    animation: cube-rotate 40s linear infinite;
+  }
+  .hero__cube-wrapper {
+    filter: none;
+  }
+  .hero__cube-face::after {
+    display: none;
   }
 }
 .page {
@@ -3545,3 +3584,5 @@ body.menu-open {
   background: linear-gradient(135deg, #18181c 0%, #23232a 100%);
   color: #fff;
 }
+
+/*# sourceMappingURL=main.css.map */

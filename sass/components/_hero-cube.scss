@@ -8,6 +8,7 @@
   width: var(--cube-size);
   height: var(--cube-size);
   margin: 1.5rem auto 2rem; // más espacio inferior para no chocar con los hits
+  -webkit-perspective: 1200px; // Soporte iOS/Safari
   perspective: 1200px; // Profundidad 3D
   z-index: 1; // por detrás de las cards de hits
   filter: drop-shadow(0 16px 60px rgba(0,0,0,.45));
@@ -18,9 +19,13 @@
   position: relative;
   width: 100%;
   height: 100%;
+  -webkit-transform-style: preserve-3d; // iOS/Safari
   transform-style: preserve-3d;
+  -webkit-animation: cube-rotate 28s linear infinite; // iOS/Safari
   animation: cube-rotate 28s linear infinite; // más suave
   will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0); // fuerza aceleración GPU
 }
 
 // Pausar al pasar el mouse
@@ -35,6 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-backface-visibility: hidden; // iOS/Safari
   backface-visibility: hidden;
   overflow: hidden;
   // evitar bordes/grietas entre caras
@@ -86,6 +92,26 @@
   height: var(--cube-size);
   margin-top: 0.5rem;
   margin-bottom: 1.25rem;
+  // En algunos navegadores móviles, filter puede aplanar 3D; desactivarlo evita ese bug
+  filter: none;
+  }
+}
+
+// Extra pequeño: teléfonos muy compactos
+@include mobile-xs {
+  .hero__cube-wrapper {
+    --cube-size: min(80vmin, 260px);
+    width: var(--cube-size);
+    height: var(--cube-size);
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Hack específico para Safari iOS: evitar aplanado 3D cuando hay filtros
+@supports (-webkit-touch-callout: none) {
+  .hero__cube-wrapper {
+    filter: none;
   }
 }
 
@@ -94,4 +120,17 @@
   .hero__cube-scene {
     animation: none;
   }
+  // Reducir efectos visuales para menor costo de render
+  .hero__cube-wrapper { filter: none; }
+  .hero__cube-face::after { display: none; }
+}
+
+// Ahorro de datos: bajar costo de animación y efectos si el navegador lo expone
+@media (prefers-reduced-data: reduce) {
+  .hero__cube-scene {
+    -webkit-animation: cube-rotate 40s linear infinite;
+    animation: cube-rotate 40s linear infinite;
+  }
+  .hero__cube-wrapper { filter: none; }
+  .hero__cube-face::after { display: none; }
 }
