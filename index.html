@@ -171,7 +171,7 @@
   <header class="header">
     <nav class="nav nav--main">
       <div class="nav__brand">
-        <div class="nav__logo logo"><img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma"></div>
+  <div class="nav__logo logo"><img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma" width="150" height="150" fetchpriority="high" decoding="async"></div>
         
         <!-- Botón hamburguesa para móvil -->
         <button class="nav__toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
@@ -184,7 +184,7 @@
         <div class="nav__photos nav__photos--desktop">
           <div class="nav__photo-item nav__dropdown">
             <a href="#" class="nav__photo-link">
-              <img src="./assets/images/karizmaantiguo.png" alt="Próximos Eventos" class="nav__photo-img">
+              <img src="./assets/images/karizmaantiguo.png" alt="Próximos Eventos" class="nav__photo-img" loading="lazy" decoding="async" width="110" height="75">
             </a>
             <a href="#" class="nav__photo-label">Próximos eventos</a>
             <ul class="nav__submenu">
@@ -199,28 +199,28 @@
           
           <div class="nav__photo-item">
             <a href="#quienes-somos" class="nav__photo-link">
-              <img src="./assets/images/karizmaantiguo.jpg" alt="Grupo Karizma - Historia y Trayectoria Musical" class="nav__photo-img" loading="lazy">
+              <img src="./assets/images/karizmaantiguo.jpg" alt="Grupo Karizma - Historia y Trayectoria Musical" class="nav__photo-img" loading="lazy" decoding="async" width="110" height="75">
             </a>
             <a href="#quienes-somos" class="nav__photo-label">Quienes Somos</a>
           </div>
           
           <div class="nav__photo-item">
             <a href="#discografia" class="nav__photo-link">
-              <img src="./assets/images/versatiles2016.jpg" alt="Discografía" class="nav__photo-img">
+              <img src="./assets/images/versatiles2016.jpg" alt="Discografía" class="nav__photo-img" loading="lazy" decoding="async" width="110" height="75">
             </a>
             <a href="#discografia" class="nav__photo-label">Discografía</a>
           </div>
           
           <div class="nav__photo-item">
             <a href="#conocenos" class="nav__photo-link">
-              <img src="./assets/images/solo2010.jpg" alt="Conócenos" class="nav__photo-img">
+              <img src="./assets/images/solo2010.jpg" alt="Conócenos" class="nav__photo-img" loading="lazy" decoding="async" width="110" height="75">
             </a>
             <a href="#conocenos" class="nav__photo-label">Conócenos</a>
           </div>
           
           <div class="nav__photo-item">
             <a href="https://wa.me/56997100768" class="nav__photo-link" target="_blank" rel="noopener">
-              <img src="./assets/images/karizma1.png" alt="Contrataciones" class="nav__photo-img">
+              <img src="./assets/images/karizma1.png" alt="Contrataciones" class="nav__photo-img" loading="lazy" decoding="async" width="110" height="75">
             </a>
             <a href="https://wa.me/56997100768" class="nav__photo-label" target="_blank" rel="noopener">Contrataciones</a>
           </div>
@@ -229,7 +229,7 @@
         <!-- Menú móvil hamburguesa -->
         <div class="nav__mobile-menu">
           <div class="nav__mobile-header">
-            <img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma" class="nav__mobile-logo">
+            <img src="./assets/images/karizma1.png" alt="Logo Grupo Karizma" class="nav__mobile-logo" loading="lazy" decoding="async" width="120" height="120">
             <button class="nav__mobile-close" aria-label="Cerrar menú">&times;</button>
           </div>
           
@@ -626,7 +626,7 @@
                         </div>
                             <div class="gallery-section__cta">
                                 <div class="gallery-section__video">
-                                    <video autoplay muted loop playsinline preload="auto" controls
+                                    <video autoplay muted loop playsinline preload="metadata" controls poster="./assets/images/karizma1.png"
                                            title="Grupo Karizma - Video promocional">
                                         <source src="./assets/images/putu.mp4" type="video/mp4">
                                         Tu navegador no soporta el elemento de video.
@@ -695,9 +695,9 @@
         </div>
     </div>
 
-    <script src="./assets/scripts/menu.js"></script>
-    <script src="./assets/scripts/carousel.js"></script>
-    <script src="./assets/scripts/modal.js"></script>
+  <script src="./assets/scripts/menu.js" defer></script>
+  <script src="./assets/scripts/carousel.js" defer></script>
+  <script src="./assets/scripts/modal.js" defer></script>
 <script>
 // Cierra el menú móvil y hace scroll suave al id correspondiente
 document.addEventListener('DOMContentLoaded', function() {
