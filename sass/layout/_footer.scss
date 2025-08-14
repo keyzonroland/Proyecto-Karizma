@@ -21,7 +21,6 @@
 }
 
 .footer__content {
-  @include container;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,6 +33,9 @@
   @include mobile {
     gap: 0.75rem;
   }
+
+  // Mover los mixins que generan reglas anidadas al final para evitar mixed-decls
+  @include container;
 }
 
 .footer__logo {

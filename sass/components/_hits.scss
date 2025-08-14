@@ -24,6 +24,15 @@
   }
 }
 
+// Wrapper de cada card + caption
+.flex-hit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 260px;
+}
+
   // Cuando el cubo está presente, damos margen superior a los hits
   .hero__cube-wrapper + .hero__hits {
     margin-top: 1rem;
@@ -80,23 +89,23 @@
   }
 }
 
-.flex-hit-title {
+.flex-hit-caption {
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 1.2rem;
+  margin-top: 0.25rem;
   text-align: center;
   letter-spacing: 0.02em;
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-  color: inherit;
+  color: #fff;
 
   @include tablet {
     font-size: 1.1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.2rem;
   }
 
   @include mobile {
     font-size: 1rem;
-    margin-bottom: 0.8rem;
+    margin-top: 0.15rem;
   }
 }
 

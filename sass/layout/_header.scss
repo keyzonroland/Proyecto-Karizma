@@ -223,6 +223,7 @@
 
   // Etiqueta del título debajo de cada foto
   &__photo-label {
+  font-family: $font-main;
     color: $color-white;
     font-size: 0.9rem;
     font-weight: 700;
@@ -232,7 +233,6 @@
     letter-spacing: 0.3px;
     text-shadow: 0 1px 3px rgba(0,0,0,0.7);
     text-decoration: none;
-    font-family: $font-main;
 
     @include tablet {
       font-size: 0.8rem;
@@ -244,7 +244,6 @@
       word-break: break-word;
       hyphens: auto;
     }
-    font-family: $font-main;
     
     &:hover {
       color: $color-accent;
