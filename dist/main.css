@@ -2922,6 +2922,25 @@ body.menu-open {
   justify-content: center;
   align-items: center;
 }
+.gallery-carousel .photo-gallery__img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 0.5rem;
+}
+@media (max-width: 768px) {
+  .gallery-carousel .photo-gallery__img {
+    max-height: 55vh;
+  }
+}
+@media (max-width: 480px) {
+  .gallery-carousel .photo-gallery__img {
+    max-height: 50vh;
+  }
+}
 .gallery-carousel__btn {
   position: absolute;
   top: 50%;

@@ -1133,6 +1133,25 @@
     align-items: center;
   }
 
+  // Asegurar que las imágenes nunca superen la pantalla
+  .photo-gallery__img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  max-height: 60vh;
+    object-fit: contain;
+    display: block;
+    border-radius: 0.5rem;
+  }
+
+  @include tablet {
+  .photo-gallery__img { max-height: 55vh; }
+  }
+
+  @include mobile {
+  .photo-gallery__img { max-height: 50vh; }
+  }
+
   &__btn {
     position: absolute;
     top: 50%;
