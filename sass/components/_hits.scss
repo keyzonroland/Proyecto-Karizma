@@ -24,6 +24,13 @@
   }
 }
 
+// Fondo sutil para el contenedor de hits en el hero
+.hero__hits {
+  background: rgba(0, 0, 0, 0.02);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+}
+
 // Wrapper de cada card + caption
 .flex-hit-item {
   display: flex;
@@ -86,8 +93,22 @@
   @include mobile {
     flex-grow: 1;
     transform: scale(1.02) translateY(-2px);
-  }
 }
+}
+
+// Variantes de gradiente por clase (ancladas al elemento principal)
+.flex-hit.flex-hit--tu-traicion { background: linear-gradient(135deg, rgba(247,151,30,0.75) 60%, rgba(25,20,20,0.75) 100%); }
+.flex-hit.flex-hit--confesion { background: linear-gradient(135deg, rgba(67,206,162,0.75) 60%, rgba(25,20,20,0.75) 100%); }
+.flex-hit.flex-hit--entonces { background: linear-gradient(135deg, rgba(255,94,98,0.75) 60%, rgba(25,20,20,0.75) 100%); }
+.flex-hit.flex-hit--besos { background: linear-gradient(135deg, rgba(224,185,115,0.75) 60%, rgba(25,20,20,0.75) 100%); }
+.flex-hit.flex-hit--donde { background: linear-gradient(135deg, rgba(29,185,84,0.75) 60%, rgba(25,20,20,0.75) 100%); }
+
+// Asignar imágenes a cada tarjeta por clase
+.flex-hit--tu-traicion .flex-hit-bg { background-image: url('../assets/images/hits/tu-traicion.jpg'); }
+.flex-hit--confesion .flex-hit-bg { background-image: url('../assets/images/hits/confesion.jpg'); }
+.flex-hit--entonces .flex-hit-bg { background-image: url('../assets/images/hits/entonces-que-somos.jpg'); }
+.flex-hit--besos .flex-hit-bg { background-image: url('../assets/images/hits/de-los-besos-que-te-di.jpg'); }
+.flex-hit--donde .flex-hit-bg { background-image: url('../assets/images/hits/en-donde-estes.jpg'); }
 
 .flex-hit-caption {
   font-size: 1.25rem;

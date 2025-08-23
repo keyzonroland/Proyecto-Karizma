@@ -291,6 +291,9 @@
             <section class="hero">
                 <div class="hero__image-bg"></div>
                     <div class="hero__content">
+                        <h1 class="hero__title visually-hidden">
+                          Grupo Karizma · Banda Chilena de Música Tropical Ranchera para Eventos y Contrataciones
+                        </h1>
                     
                     <!-- Cubo 3D con la foto principal; gira continuamente y se pausa al pasar el mouse -->
                     <div class="hero__cube-wrapper" aria-label="Cubo 3D con foto principal">
@@ -305,40 +308,40 @@
                     </div>
                     
                     <!-- Cards de Hits en Hero Section - Máxima transparencia para no tapar la foto -->
-                    <div class="hero__hits" style="background: rgba(0, 0, 0, 0.02); backdrop-filter: blur(1px);">
-                        <div class="flex-hits-container" style="background: transparent;">
+          <div class="hero__hits">
+            <div class="flex-hits-container">
                           <!-- Hits del Momento - título debajo de cada card -->
                           <div class="flex-hit-item">
-                            <a href="https://www.youtube.com/embed/-a7HbB5y1QM?si=1" target="_blank" title="Ver Tu traición en YouTube" class="flex-hit" style="background: linear-gradient(135deg,rgba(247,151,30,0.75) 60%, rgba(25,20,20,0.75) 100%);">
-                              <div class="flex-hit-bg" style="background-image:url('./assets/images/hits/tu-traicion.jpg');"></div>
+                            <a href="https://www.youtube.com/embed/-a7HbB5y1QM?si=1" target="_blank" rel="noopener" title="Ver Tu traición en YouTube" class="flex-hit flex-hit--tu-traicion">
+                              <div class="flex-hit-bg" data-bg="./assets/images/hits/tu-traicion.jpg"></div>
                             </a>
                             <span class="flex-hit-caption">Tu traición</span>
                           </div>
 
                           <div class="flex-hit-item">
-                            <a href="https://youtu.be/EMQ-AjMZKCw?si=grlzQqrES-VwoHkc" target="_blank" title="Ver Confesión en YouTube" class="flex-hit" style="background: linear-gradient(135deg,rgba(67,206,162,0.75) 60%, rgba(25,20,20,0.75) 100%);">
-                              <div class="flex-hit-bg" style="background-image:url('./assets/images/hits/confesion.jpg');"></div>
+                            <a href="https://youtu.be/EMQ-AjMZKCw?si=grlzQqrES-VwoHkc" target="_blank" rel="noopener" title="Ver Confesión en YouTube" class="flex-hit flex-hit--confesion">
+                              <div class="flex-hit-bg" data-bg="./assets/images/hits/confesion.jpg"></div>
                             </a>
                             <span class="flex-hit-caption">Confesión</span>
                           </div>
 
                           <div class="flex-hit-item">
-                            <a href="https://www.youtube.com/watch?v=euzxK1BLSlo&list=RDeuzxK1BLSlo&start_radio=1" target="_blank" title="Ver Entonces qué somos en YouTube" class="flex-hit" style="background: linear-gradient(135deg,rgba(255,94,98,0.75) 60%, rgba(25,20,20,0.75) 100%);">
-                              <div class="flex-hit-bg" style="background-image:url('./assets/images/hits/entonces-que-somos.jpg');"></div>
+                            <a href="https://www.youtube.com/watch?v=euzxK1BLSlo&list=RDeuzxK1BLSlo&start_radio=1" target="_blank" rel="noopener" title="Ver Entonces qué somos en YouTube" class="flex-hit flex-hit--entonces">
+                              <div class="flex-hit-bg" data-bg="./assets/images/hits/entonces-que-somos.jpg"></div>
                             </a>
                             <span class="flex-hit-caption">Entonces qué somos</span>
                           </div>
 
                           <div class="flex-hit-item">
-                            <a href="https://www.youtube.com/watch?v=LToLQ0CdsWw&list=RDLToLQ0CdsWw&start_radio=1" target="_blank" title="Ver De los besos que te di en YouTube" class="flex-hit" style="background: linear-gradient(135deg,rgba(224,185,115,0.75) 60%, rgba(25,20,20,0.75) 100%);">
-                              <div class="flex-hit-bg" style="background-image:url('./assets/images/hits/de-los-besos-que-te-di.jpg');"></div>
+                            <a href="https://www.youtube.com/watch?v=LToLQ0CdsWw&list=RDLToLQ0CdsWw&start_radio=1" target="_blank" rel="noopener" title="Ver De los besos que te di en YouTube" class="flex-hit flex-hit--besos">
+                              <div class="flex-hit-bg" data-bg="./assets/images/hits/de-los-besos-que-te-di.jpg"></div>
                             </a>
                             <span class="flex-hit-caption">De los besos que te di</span>
                           </div>
 
                           <div class="flex-hit-item">
-                            <a href="https://www.youtube.com/watch?v=2ZuxWlwPoVs&list=RD2ZuxWlwPoVs&start_radio=1" target="_blank" title="Ver En donde estés en YouTube" class="flex-hit" style="background: linear-gradient(135deg,rgba(29,185,84,0.75) 60%, rgba(25,20,20,0.75) 100%);">
-                              <div class="flex-hit-bg" style="background-image:url('./assets/images/hits/en-donde-estes.jpg');"></div>
+                            <a href="https://www.youtube.com/watch?v=2ZuxWlwPoVs&list=RD2ZuxWlwPoVs&start_radio=1" target="_blank" rel="noopener" title="Ver En donde estés en YouTube" class="flex-hit flex-hit--donde">
+                              <div class="flex-hit-bg" data-bg="./assets/images/hits/en-donde-estes.jpg"></div>
                             </a>
                             <span class="flex-hit-caption">En donde estés</span>
                           </div>
@@ -480,86 +483,67 @@
                             </div>
                         </div>
 
-                        <!-- Éxitos Recientes -->
-                        <div class="history-section__block">
-                            <div class="history-section__header">
-                                <h3 class="history-section__title">Nuestros Hits del Momento</h3>
-                                <div class="history-section__separator"></div>
-                            </div>
-                            <div class="history-section__content">
-                                <!-- Carrusel de Hits movido desde hero -->
-                                <div class="hero__carousel">
-                                    <div class="hero__carousel-container">
-                                        <div class="hero__carousel-track">
-                                            <!-- Hit 1: Tu traición -->
-                                            <div class="hero__carousel-slide active">
-                                                <a href="https://www.youtube.com/embed/-a7HbB5y1QM?si=1" target="_blank" title="Ver en YouTube" class="hero__hit">
-                                                    <div class="hero__hit-bg" style="background-image:url('./assets/images/hits/tu-traicion.jpg');"></div>
-                                                    <div class="hero__hit-content">
-                                                        <h3 class="hero__hit-title">Tu traición</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            
-                                            <!-- Hit 2: Confesión -->
-                                            <div class="hero__carousel-slide">
-                                                <a href="https://youtu.be/EMQ-AjMZKCw?si=grlzQqrES-VwoHkc" target="_blank" title="Ver en YouTube" class="hero__hit">
-                                                    <div class="hero__hit-bg" style="background-image:url('./assets/images/hits/confesion.jpg');"></div>
-                                                    <div class="hero__hit-content">
-                                                        <h3 class="hero__hit-title">Confesión</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            
-                                            <!-- Hit 3: Entonces qué somos -->
-                                            <div class="hero__carousel-slide">
-                                                <a href="https://www.youtube.com/watch?v=euzxK1BLSlo&list=RDeuzxK1BLSlo&start_radio=1" target="_blank" title="Ver en YouTube" class="hero__hit">
-                                                    <div class="hero__hit-bg" style="background-image:url('./assets/images/hits/entonces-que-somos.jpg');"></div>
-                                                    <div class="hero__hit-content">
-                                                        <h3 class="hero__hit-title">Entonces qué somos</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            
-                                            <!-- Hit 4: De los besos que te di -->
-                                            <div class="hero__carousel-slide">
-                                                <a href="https://www.youtube.com/watch?v=LToLQ0CdsWw&list=RDLToLQ0CdsWw&start_radio=1" target="_blank" title="Ver en YouTube" class="hero__hit">
-                                                    <div class="hero__hit-bg" style="background-image:url('./assets/images/hits/de-los-besos-que-te-di.jpg');"></div>
-                                                    <div class="hero__hit-content">
-                                                        <h3 class="hero__hit-title">De los besos que te di</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            
-                                            <!-- Hit 5: En donde estés -->
-                                            <div class="hero__carousel-slide">
-                                                <a href="https://www.youtube.com/watch?v=2ZuxWlwPoVs&list=RD2ZuxWlwPoVs&start_radio=1" target="_blank" title="Ver en YouTube" class="hero__hit">
-                                                    <div class="hero__hit-bg" style="background-image:url('./assets/images/hits/en-donde-estes.jpg');"></div>
-                                                    <div class="hero__hit-content">
-                                                        <h3 class="hero__hit-title">En donde estés</h3>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Controles del carrusel -->
-                                        <div class="hero__carousel-controls">
-                                            <button class="hero__carousel-btn hero__carousel-prev" onclick="prevSlide()" aria-label="Anterior">‹</button>
-                                            <button class="hero__carousel-btn hero__carousel-next" onclick="nextSlide()" aria-label="Siguiente">›</button>
-                                        </div>
-                                        
-                                        <!-- Indicadores -->
-                                        <div class="hero__carousel-indicators">
-                                            <button class="hero__carousel-dot active" onclick="currentSlide(1)"></button>
-                                            <button class="hero__carousel-dot" onclick="currentSlide(2)"></button>
-                                            <button class="hero__carousel-dot" onclick="currentSlide(3)"></button>
-                                            <button class="hero__carousel-dot" onclick="currentSlide(4)"></button>
-                                            <button class="hero__carousel-dot" onclick="currentSlide(5)"></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <!-- Galería de Fotografía (reemplazo de “Nuestros Hits del Momento”) -->
+            <div class="history-section__block">
+              <div class="history-section__header">
+                <h3 class="history-section__title">Galería de Fotografía</h3>
+                <div class="history-section__separator"></div>
+              </div>
+              <div class="history-section__content">
+                <div class="photo-gallery" aria-label="Galería de fotografías de tocatas del Grupo Karizma">
+                  <div class="gallery-carousel" aria-label="Galería de fotografías de tocatas del Grupo Karizma" role="region">
+                    <button class="gallery-carousel__btn gallery-carousel__btn--prev" aria-label="Anterior" type="button">‹</button>
+                    <div class="gallery-carousel__viewport">
+                      <div class="gallery-carousel__track">
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0032.jpg" alt="Tocata Grupo Karizma - 0032" loading="lazy" decoding="async"></figure>
                         </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0033.jpg" alt="Tocata Grupo Karizma - 0033" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0034.jpg" alt="Tocata Grupo Karizma - 0034" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0035.jpg" alt="Tocata Grupo Karizma - 0035" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0036.jpg" alt="Tocata Grupo Karizma - 0036" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0037.jpg" alt="Tocata Grupo Karizma - 0037" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0038.jpg" alt="Tocata Grupo Karizma - 0038" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0039.jpg" alt="Tocata Grupo Karizma - 0039" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0040.jpg" alt="Tocata Grupo Karizma - 0040" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0041.jpg" alt="Tocata Grupo Karizma - 0041" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0042.jpg" alt="Tocata Grupo Karizma - 0042" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0043.jpg" alt="Tocata Grupo Karizma - 0043" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/IMG-20250819-WA0044.jpg" alt="Tocata Grupo Karizma - 0044" loading="lazy" decoding="async"></figure>
+                        </div>
+                        <div class="gallery-carousel__slide">
+                          <figure class="photo-gallery__item"><img class="photo-gallery__img" src="./assets/images/tocatas/labarca.jpg" alt="Tocata Grupo Karizma - La Barca" loading="lazy" decoding="async"></figure>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="gallery-carousel__btn gallery-carousel__btn--next" aria-label="Siguiente" type="button">›</button>
+                  </div>
+                </div>
+              </div>
+            </div>
                     </div>
                 </section>
                 
@@ -696,10 +680,23 @@
         </div>
     </div>
 
+  <!-- Lightbox para la galería de fotos -->
+  <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-labelledby="photoLightboxCaption" hidden>
+    <div class="photo-lightbox__overlay" data-close></div>
+    <div class="photo-lightbox__content" role="document">
+      <button class="photo-lightbox__close" type="button" aria-label="Cerrar" data-close>&times;</button>
+      <button class="photo-lightbox__nav-btn photo-lightbox__nav-btn--prev" type="button" aria-label="Anterior" data-prev>‹</button>
+      <button class="photo-lightbox__nav-btn photo-lightbox__nav-btn--next" type="button" aria-label="Siguiente" data-next>›</button>
+      <img id="photoLightboxImg" class="photo-lightbox__img" src="" alt="" loading="eager" />
+      <p id="photoLightboxCaption" class="photo-lightbox__caption"></p>
+    </div>
+  </div>
+
   <script src="./assets/scripts/menu.js" defer></script>
-  <script src="./assets/scripts/carousel.js" defer></script>
   <script src="./assets/scripts/modal.js" defer></script>
   <script src="./assets/scripts/visit-counter.js" defer></script>
+  <script src="./assets/scripts/gallery-lightbox.js" defer></script>
+  <script src="./assets/scripts/gallery-carousel.js" defer></script>
 <script>
 // Cierra el menú móvil y hace scroll suave al id correspondiente
 document.addEventListener('DOMContentLoaded', function() {
