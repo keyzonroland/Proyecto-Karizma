@@ -28,6 +28,17 @@
   transform: translateZ(0); // fuerza aceleración GPU
 }
 
+// Enlace visible al video (fallback)
+.hero__video-link {
+  margin-top: 0.5rem;
+  text-align: center;
+  a {
+    color: #e0b973;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+}
+
 // Pausar al pasar el mouse
 .hero__cube-wrapper:hover .hero__cube-scene {
   animation-play-state: paused;
@@ -65,6 +76,67 @@
   inset: 0;
   background: linear-gradient(145deg, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 35%, rgba(0,0,0,.25) 100%);
   pointer-events: none;
+}
+
+// Caras con video: sin overlays y el video ocupa toda la cara
+.hero__cube-face--video {
+  background: #000;
+  z-index: 0;
+}
+.hero__cube-face--video::before,
+.hero__cube-face--video::after {
+  display: none;
+}
+.hero__cube-face--video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  pointer-events: none; // que no interfiera con la interacción del hero
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+// Enlace con miniatura de YouTube ocupando toda la cara
+.hero__cube-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  &:hover::after { opacity: 1; transform: translate(-50%, -50%) scale(1.05); }
+  &::after {
+    content: '▶';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    font-size: 34px;
+    line-height: 64px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,.35);
+    transition: all .2s ease;
+    opacity: .9;
+  }
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
 
 // Caras del cubo (mismo arte en todas para destacar marca)

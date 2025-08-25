@@ -8,8 +8,8 @@
   <title>Grupo Karizma | Banda Chilena de Música Tropical Ranchera | Contrataciones</title>
   
   <!-- CSS Critical Path -->
-  <link rel="preload" href="./dist/main.css?v=2025-07-14-15" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="./dist/main.css?v=2025-07-14-15"></noscript>
+  <link rel="preload" href="./dist/main.css?v=2025-08-24-22-47" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./dist/main.css?v=2025-08-24-22-47"></noscript>
   
   <!-- Fonts Optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,6 +160,10 @@
   <link rel="preload" href="./assets/images/karizma1.png" as="image" type="image/png">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//www.youtube.com">
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="//www.youtube-nocookie.com">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="dns-prefetch" href="//i.ytimg.com">
   <link rel="dns-prefetch" href="//open.spotify.com">
   
   <!-- Additional Mobile Optimization -->
@@ -298,14 +302,28 @@
                     <!-- Cubo 3D con la foto principal; gira continuamente y se pausa al pasar el mouse -->
                     <div class="hero__cube-wrapper" aria-label="Cubo 3D con foto principal">
                       <div class="hero__cube-scene">
-                        <div class="hero__cube-face hero__cube-face--front"></div>
-                        <div class="hero__cube-face hero__cube-face--back"></div>
+                        <div class="hero__cube-face hero__cube-face--front hero__cube-face--video">
+                          <a class="hero__cube-video" href="https://youtu.be/mHJYF5OMuf8?si=xY7xNOAaWInw9LI0" target="_blank" rel="noopener" aria-label="Ver video en YouTube (cara frontal)">
+                            <img src="https://i.ytimg.com/vi/mHJYF5OMuf8/hqdefault.jpg" alt="Miniatura del video en YouTube" loading="lazy" decoding="async">
+                          </a>
+                        </div>
+                        <div class="hero__cube-face hero__cube-face--back hero__cube-face--video">
+                          <a class="hero__cube-video" href="https://youtu.be/mHJYF5OMuf8?si=xY7xNOAaWInw9LI0" target="_blank" rel="noopener" aria-label="Ver video en YouTube (cara trasera)">
+                            <img src="https://i.ytimg.com/vi/mHJYF5OMuf8/hqdefault.jpg" alt="Miniatura del video en YouTube" loading="lazy" decoding="async">
+                          </a>
+                        </div>
                         <div class="hero__cube-face hero__cube-face--right"></div>
                         <div class="hero__cube-face hero__cube-face--left"></div>
                         <div class="hero__cube-face hero__cube-face--top"></div>
                         <div class="hero__cube-face hero__cube-face--bottom"></div>
                       </div>
                     </div>
+                    <!-- Enlace visible como fallback al video de YouTube -->
+                    <p class="hero__video-link">
+                      <a href="https://youtu.be/mHJYF5OMuf8?si=xY7xNOAaWInw9LI0" target="_blank" rel="noopener" title="Abrir el video en YouTube">
+                        Ver el clip en YouTube
+                      </a>
+                    </p>
                     
                     <!-- Cards de Hits en Hero Section - Máxima transparencia para no tapar la foto -->
           <div class="hero__hits">
@@ -608,15 +626,21 @@
                             </div>
                            
                         </div>
-                            <div class="gallery-section__cta">
-                                <div class="gallery-section__video">
-                                    <video autoplay muted loop playsinline preload="metadata" controls poster="./assets/images/karizma1.png"
-                                           title="Grupo Karizma - Video promocional">
-                                        <source src="./assets/images/putu.mp4" type="video/mp4">
-                                        Tu navegador no soporta el elemento de video.
-                                    </video>
-                                </div>
-                            </div>
+              <div class="gallery-section__thanks" aria-labelledby="thanks-title">
+                <h3 id="thanks-title" class="gallery-section__thanks-title">Agradecimientos</h3>
+                <ul class="gallery-section__thanks-list">
+                  
+                  <li><a href="https://www.instagram.com/morgado_producciones?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==/" target="_blank" rel="noopener nofollow">Morgado Producciones</a></li>
+
+                  <li><a href="https://www.instagram.com/labarcaclub_oficial?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==/" target="_blank" rel="noopener nofollow">Labarca Club</a></li>
+
+                  <li><a href="https://www.instagram.com/parrilladas_donde_la_joy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==/" target="_blank" rel="noopener nofollow">Donde La Joy</a></li>
+                  <li><a href="https://www.instagram.com/lacaletadelpupuyanochile?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==/" target="_blank" rel="noopener nofollow">Caleta Pupuyano</a></li>
+                  <li><a href="https://www.instagram.com/gongorestogrillbar2025?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener nofollow">Gongo Restogrillbar</a></li>
+                  <li><a href="https://www.instagram.com/braserosdecolina/" target="_blank" rel="noopener nofollow">Braseros de Colina</a></li>
+                </ul>
+                <p class="gallery-section__thanks-note">Y un agradecimiento especial a toda la familia Karizma.</p>
+              </div>
                         </div>
                     </div>
                 </section>

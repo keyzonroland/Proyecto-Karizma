@@ -1700,6 +1700,16 @@ body.menu-open {
   transform: translateZ(0);
 }
 
+.hero__video-link {
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.hero__video-link a {
+  color: #e0b973;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 .hero__cube-wrapper:hover .hero__cube-scene {
   animation-play-state: paused;
 }
@@ -1732,6 +1742,72 @@ body.menu-open {
   inset: 0;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 35%, rgba(0, 0, 0, 0.25) 100%);
   pointer-events: none;
+}
+
+.hero__cube-face--video {
+  background: #000;
+  z-index: 0;
+}
+
+.hero__cube-face--video::before,
+.hero__cube-face--video::after {
+  display: none;
+}
+
+.hero__cube-face--video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.hero__cube-video {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.hero__cube-video:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+.hero__cube-video::after {
+  content: "▶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 34px;
+  line-height: 64px;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.2s ease;
+  opacity: 0.9;
+}
+.hero__cube-video img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .hero__cube-face--front {
@@ -2163,6 +2239,51 @@ body.menu-open {
   line-height: 1.1;
   color: #fff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-section__thanks {
+  margin: 2rem auto 0;
+  max-width: 900px;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+.gallery-section__thanks-title {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: #111;
+  margin: 0 0 1rem;
+}
+.gallery-section__thanks-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  justify-content: center;
+}
+.gallery-section__thanks-list li {
+  margin: 0;
+}
+.gallery-section__thanks-list a {
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(26, 26, 26, 0.2);
+  padding-bottom: 2px;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+}
+.gallery-section__thanks-list a:hover {
+  color: #000;
+  border-bottom-color: #e0b973;
+}
+.gallery-section__thanks-note {
+  margin: 0.6rem 0 0;
+  color: #2b2b2b;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
 }
 
 .content-section {

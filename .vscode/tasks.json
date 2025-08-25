@@ -8,6 +8,13 @@
 			"group": "build",
 			"isBackground": true,
 			"problemMatcher": []
+		},
+		{
+			"label": "Compilar SASS (main.scss) a CSS",
+			"type": "shell",
+			"command": "sass sass/main.scss dist/main.css --watch",
+			"isBackground": true,
+			"group": "build"
 		}
 	]
 }
