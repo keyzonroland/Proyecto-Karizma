@@ -1769,6 +1769,24 @@ body.menu-open {
   transform: translateZ(0);
 }
 
+.hero__cube-face-title {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.35rem 0.6rem;
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0b0b0b;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
 .hero__cube-video {
   position: absolute;
   inset: 0;
@@ -1836,19 +1854,10 @@ body.menu-open {
 
 @keyframes cube-rotate {
   0% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: rotateX(0deg) rotateY(90deg);
-  }
-  50% {
-    transform: rotateX(90deg) rotateY(180deg);
-  }
-  75% {
-    transform: rotateX(180deg) rotateY(270deg);
+    transform: rotateY(0deg);
   }
   100% {
-    transform: rotateX(360deg) rotateY(360deg);
+    transform: rotateY(360deg);
   }
 }
 @media (max-width: 480px) {
