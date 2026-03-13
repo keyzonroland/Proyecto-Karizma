@@ -1732,7 +1732,7 @@ body.menu-open {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../assets/images/karizma.jpg") center/cover no-repeat;
+  background: url("../assets/images/karizmanuevo.PNG") center/contain no-repeat;
   filter: contrast(1.02) saturate(1.05);
 }
 
